@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>home</title>
+    <link rel="manifest" href="manifest.json">
+</head>
+<body>
+    <h2>Login</h2>
+    <br>
+    <label for="username">Username :</label>
+    <input type="text" id="username" name="username" required>
+    <br>
+    <br>
+    <label for="password">Password :</label>
+    <input type="password" name="password" id="password" required>
+    <br>
+    <br>
+    <button type="button" onclick="doLogin()">login</button>
+
+    <script src="js/main.js"></script>
+
+    <!--register service worker -->
+    <script>
+       if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+            navigator.serviceWorker.register('service-worker.js')
+            .then(registration => {
+            console.log('SW registered with scope:', registration.scope);
+            })
+            .catch(err => {
+            console.error('Registration failed:', err);
+            });
+        });
+       }
+    </script>
+</body>
+</html>
