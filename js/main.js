@@ -18,7 +18,8 @@ function doLogin(){
         body : data,
     }).then(function(response){
         if (response.ok){
-            alert('Login Berhasil, dengan');
+            // alert('Login Berhasil, dengan');
+            window.open('/scanner.html', '_self');
             return response.json();
         } else {
             alert('Pastikan username dan Pasword sudah bener');
