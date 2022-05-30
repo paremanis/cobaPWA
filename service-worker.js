@@ -38,7 +38,11 @@ self.addEventListener('fetch', event => {
       });
 
     }).catch(error => {
-
+      return caches.match(event.request.url).then((cachedResponse)=>{
+        if (cachedResponse) {
+          return cachedResponse;
+        }
+      });
       // TODO 6 - Respond with custom offline page
 
     })
