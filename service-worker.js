@@ -1,13 +1,16 @@
 const filesToCache = [
   '/',
-  'logo.png',
   'index.html',
+  'scanner.html',
+  'history.html',
+  'img/logo.png',
+  'css/main.css',
   'js/main.js',
   'js/sw-declaration.js',
   'js/html5-qrcode.min.js'
 ];
 
-const staticCacheName = 'pages-cache-v1';
+const staticCacheName = 'gpsfoodvoucher-v0.9';
 
 self.addEventListener('install', event => {
   console.log('Attempting to install service worker and cache static assets');

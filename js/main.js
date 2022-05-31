@@ -8,6 +8,7 @@ function doLogin(){
     });
 
     var url = "https://www.mecallapi.com/api/login";
+    const alert = document.getElementById("alert");
 
     fetch(url, {
         method : "POST",
@@ -22,7 +23,12 @@ function doLogin(){
             window.open('/scanner.html', '_self');
             return response.json();
         } else {
-            alert('Pastikan username dan Pasword sudah bener');
+            // alert('Pastikan username dan Pasword sudah benar');
+            alert.classList.remove('hide');
+            alert.classList.add('blink');
+            setTimeout(() => {
+                alert.classList.remove('blink');
+            }, 1200);
         }
     })
 }

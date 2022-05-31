@@ -1,28 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>home</title>
+    <link rel="stylesheet" href="css/main.css">
     <link rel="manifest" href="manifest.json">
+    <link rel="icon" type="image/png" href="icons/192.png">
+    <title>Login</title>
 </head>
+
 <body>
-    <h2>Login</h2>
-    <br>
-    <label for="username">Username :</label>
-    <input type="text" id="username" value="karn.yong@mecallapi.com" name="username" required>
-    <br>
-    <br>
-    <label for="password">Password :</label>
-    <input type="password" name="password" value="mecallapi" id="password" required>
-    <br>
-    <br>
-    <button type="button" onclick="doLogin()">login</button>
+
+    <img src="img/logo.png" alt="Logo" class="logo">
+
+    <h2>GPS Voucher</h2>
+    <p>Please login to continue</p>
+
+    <section id="alert" class="hide">
+        Username/Password do not match
+    </section>
+
+    <fieldset class="login-form">
+
+        <label for="username">Username</label>
+        <input type="text" id="username" value="karn.yong@mecallapi.com" name="username" required>
+
+        <label for="password">Password</label>
+        <input type="password" name="password" value="mecallapi" id="password" required>
+
+        <button type="button" onclick="doLogin()">login</button>
+
+    </fieldset>
+
 
     <script src="js/main.js"></script>
 
     <!--register service worker -->
     <script src="js/sw-declaration.js"></script>
 </body>
+
 </html>

@@ -8,51 +8,79 @@
     <link rel="stylesheet" href="css/main.css">
     <link rel="manifest" href="manifest.json">
     <link rel="icon" type="image/png" href="icons/192.png">
-    <script src="js/html5-qrcode.min.js"></script>
-    <title>Scan QR Code</title>
+    <title>History</title>
 </head>
 
 <body>
-    <h2>Scanner</h2>
 
-    <fieldset class="profile">
-        <legend>User</legend>
-        <div>
-            <h4>Hanafi Adib Nugraha</h4>
-            <h5>NRK: 65361879</h5>
-        </div>
-    </fieldset>
+    <h2>GPS Voucher History</h2>
 
-    <div id="qr-reader"></div>
-    <p id="result"></p>
+    <!-- <section class="profile">
+        <h4>Hanafi Adib Nugraha</h4>
+        <h5>NRK: 65361879</h5>
+    </section> -->
+
+    <form>
+        <fieldset>
+            <legend>Filter</legend>
+            <div>
+                <label for="date_start">Date From</label>
+                <input type="date" id="date_start" name="date_start" required>
+                <label for="date_end">Date Through</label>
+                <input type="date" id="date_end" name="date_end" required>
+            </div>
+            <button>Filter</button>
+        </fieldset>
+    </form>
+
+    <!-- <section class="no-data">
+        No Data Found
+    </section> -->
+
+    <table>
+        <thead>
+            <tr>
+                <th>Date</th>
+                <th>Name</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>01 Jun 2022</td>
+                <td>Waroenk Talubi</td>
+            </tr>
+            <tr>
+                <td>02 Jun 2022</td>
+                <td>Soto Kuning Pak Yusup</td>
+            </tr>
+            <tr>
+                <td>03 Jun 2022</td>
+                <td>Surabi Duren Sukasari</td>
+            </tr>
+            <tr>
+                <td>03 Jun 2022</td>
+                <td>Sop Buntut Mang UU</td>
+            </tr>
+        </tbody>
+    </table>
 
     <footer>
 
-        <a class="active" href="scanner.html">
+        <a href="scanner.html">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" xml:space="preserve"><path opacity=".4" d="M9.19 3.75c0-.42-.34-.75-.76-.75H6.8C4.61 3 2.82 4.75 2.82 6.9v1.86c0 .41.34.75.76.75s.76-.34.76-.75V6.9c0-1.33 1.1-2.41 2.45-2.41h1.63c.43 0 .77-.33.77-.74zm8-.75H15.6c-.42 0-.76.33-.76.75 0 .41.34.75.76.75h1.59c1.36 0 2.46 1.08 2.46 2.41v1.86c0 .41.34.75.76.75s.76-.34.76-.75V6.91C21.18 4.75 19.39 3 17.19 3zM9.24 6.74h5.52c.61 0 1.19.24 1.61.66.43.43.66 1 .66 1.6v1.25c0 .15-.12.26-.27.27H7.24c-.15 0-.27-.12-.27-.27V9.01c-.01-1.24 1-2.25 2.27-2.27z"/><path d="M22.24 12.04H1.76c-.42 0-.76.34-.76.75s.34.75.76.75h1.06v3.56c0 2.15 1.78 3.9 3.97 3.9h1.63c.42 0 .76-.33.76-.75 0-.41-.34-.75-.76-.75H6.79c-1.35 0-2.45-1.08-2.45-2.41v-3.56h2.62v.99c-.01 1.24 1.01 2.25 2.27 2.27h5.52c1.27-.01 2.28-1.03 2.27-2.27v-.99h2.62v3.56c0 1.33-1.1 2.41-2.46 2.41H15.6c-.42 0-.76.33-.76.75 0 .41.34.75.76.75h1.59c2.2 0 3.98-1.75 3.98-3.91v-3.56h1.06c.42 0 .76-.33.76-.75.01-.4-.33-.74-.75-.74z"/></svg>
             <span>Scanner</span>
         </a>
 
-        <a href="history.html">
+        <a class="active" href="history.html">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" xml:space="preserve"><path d="M12 20.68c2.32 0 4.49-.91 6.14-2.56a8.657 8.657 0 0 0 2.54-6.14c-.01-4.78-3.9-8.66-8.68-8.66-2.24 0-4.37.85-6 2.4l-.1.11-1.86-1.87a.435.435 0 0 0-.46-.09c-.13.05-.26.18-.26.39v5.18c0 .23.19.42.42.42h5.18c.21 0 .34-.13.39-.26.05-.13.06-.31-.09-.46L7.3 7.22l.11-.11A6.69 6.69 0 0 1 12 5.3c3.69 0 6.7 3.01 6.7 6.7s-3.01 6.7-6.7 6.7c-1.53 0-2.97-.5-4.16-1.45a.703.703 0 0 0-.43-.15c-.18 0-.37.07-.5.21l-.4.4c-.14.14-.22.34-.21.54.01.2.1.38.26.51A8.657 8.657 0 0 0 12 20.68z"/><path opacity=".4" d="m14.39 14.79.35-.45c.29-.37.22-.91-.15-1.2l-1.45-1.13V8.3a.85.85 0 0 0-.85-.85h-.57a.85.85 0 0 0-.85.85v4.83l2.33 1.81c.36.29.9.22 1.19-.15z"/></svg>
             <span>History</span>
         </a>
 
     </footer>
 
-    <script src="js/main.js"></script>
 
     <!--register service worker -->
     <script src="js/sw-declaration.js"></script>
-    <script>
-        function onScanSuccess(decodedText, decodedResult) {
-            console.log(`Code scanned = ${decodedText}`, decodedResult);
-            document.getElementById('result').innerHTML = `Code scanned = ${decodedText}`;
-        }
-        var html5QrcodeScanner = new Html5QrcodeScanner(
-            "qr-reader", { fps: 10, qrbox: 250 });
-        html5QrcodeScanner.render(onScanSuccess);
-    </script>
 </body>
 
 </html>
