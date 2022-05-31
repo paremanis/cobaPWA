@@ -6,9 +6,6 @@ function doLogin(){
         'username' : username.value,
         'password' : password.value
     });
-    // cookies
-    document.cookie = "uname=" + username.value;
-    document.cookie = "pass=" + password.value;
     
     // fetch API from mecallapi
     var url = "https://www.mecallapi.com/api/login";
@@ -21,8 +18,10 @@ function doLogin(){
         },
         body : data,
     }).then(function(response){
-        if (response.ok){
-            // alert('Login Berhasil, dengan');
+        if (response.ok){            
+            // cookies
+            document.cookie = "uname=" + username.value;
+            document.cookie = "pass=" + password.value;
             window.open('/scanner.html', '_self');
             return response.json();
         } else {
