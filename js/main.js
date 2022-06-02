@@ -23,7 +23,14 @@ function doLogin(){
             // cookies
             document.cookie = "uname=" + username.value;
             document.cookie = "pass=" + password.value;
-            window.open('/scanner.html', '_self');
+
+            sessionStorage.setItem("AuthenticationState", "Authenticated");
+                
+            //This authentication key will expire in 1 hour.
+            sessionStorage.setItem("AuthenticationExpires", new Date().addHours(4));
+            
+            //Push the user over to the next page.
+            window.open('/scanner.html', '_self');         
             return response.json();
         } else {
             // alert('Pastikan username dan Pasword sudah benar');
@@ -51,7 +58,26 @@ function checkCookie() {
         
         username.value = cUsername;
         password.value = cPassword;
+        // alert(new Date().addHours(4));
       }
 }
+
+function checkSession(){
+    if (sessionStorage.getItem('AuthenticationState') === null) {
+        window.open("/", "_self");
+     }
+     //Is their authentication token still valid?
+     else if (Date.now > new Date(sessionStorage.getItem('AuthenticationExpires'))) {
+           window.open("/", "_self");
+     }
+     else {
+       //The user is authenticated and the authentication has not expired.
+     }
+}
+
+Date.prototype.addHours = function(h) {    
+    this.setTime(this.getTime() + (h*60*60*1000)); 
+    return this;   
+ }
 
 
