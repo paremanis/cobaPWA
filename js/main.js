@@ -3,44 +3,58 @@ const password = document.getElementById("password");
 
 function doLogin(){
     var data = JSON.stringify({
+        'request_type' : 'login',
         'username' : username.value,
         'password' : password.value
     });
     
     // fetch API from mecallapi
-    var url = "https://www.mecallapi.com/api/login";
+    var url = "https://haris.globalprestasi.sch.id/api/vm.php";
     const alert = document.getElementById("alert");
 
-    fetch(url, {
-        method : "POST",
-        headers : {
-            'Accept' : 'application/JSON',
-            'Content-type' : 'application/JSON'
-        },
-        body : data,
-    }).then(function(response){
-        if (response.ok){            
-            // cookies
-            document.cookie = "uname=" + username.value;
-            document.cookie = "pass=" + password.value;
+    // fetch(url, {
+    //     method : "POST",
+    //     // mode : "no-cors",
+    //     headers : {
+    //         'Accept' : 'application/JSON',
+    //         'Content-type' : 'application/JSON'
+    //     },
+    //     body : data,
+    // }).then(function(response){
+    //     if (response.ok){            
+    //         // cookies
+    //         document.cookie = "uname=" + username.value;
+    //         document.cookie = "pass=" + password.value;
 
-            sessionStorage.setItem("AuthenticationState", "Authenticated");
+    //         sessionStorage.setItem("AuthenticationState", "Authenticated");
                 
-            //This authentication key will expire in 1 hour.
-            sessionStorage.setItem("AuthenticationExpires", new Date().addHours(4));
+    //         //This authentication key will expire in 1 hour.
+    //         sessionStorage.setItem("AuthenticationExpires", new Date().addHours(4));
             
-            //Push the user over to the next page.
-            window.open('/scanner.html', '_self');         
-            return response.json();
-        } else {
-            // alert('Pastikan username dan Pasword sudah benar');
-            alert.classList.remove('hide');
-            alert.classList.add('blink');
-            setTimeout(() => {
-                alert.classList.remove('blink');
-            }, 1200);
-        }
+    //         //Push the user over to the next page.
+    //         window.open('/scanner.html', '_self');         
+    //         return response.json();
+    //     } else {
+    //         // alert('Pastikan username dan Pasword sudah benar');
+    //         alert.classList.remove('hide');
+    //         alert.classList.add('blink');
+    //         setTimeout(() => {
+    //             alert.classList.remove('blink');
+    //         }, 1200);
+    //     }
+    // })
+
+    fetch(url, {
+        method: 'POST',
+        headers: [
+            ["Content-Type", "application/json"],
+            ["Content-Type", "text/plain"]
+          ],
+          body : data,
     })
+    .then(response => response.json())
+    .then(json => console.log(json))
+    .catch(error => console.log('Authorization failed : ' + error.message));
 }
 
 function checkCookie() {
