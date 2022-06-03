@@ -15,6 +15,7 @@
     --color-danger: #ff4961;
     --color-success: #2dd36f;
     --color-soft: #f9f9f9;
+    --color-bright: #ffff46;
     --border-radius: 16px;
     --box-shadow: -1px -1px 2px var(--color-highlight), 1px 1px 2px var(--color-shadow), 0 0 1px var(--color-shadow);
     --box-shadow-inset: inset 1px 1px 2px var(--color-shadow), inset -1px -1px 2px var(--color-highlight), inset 0 0 1px var(--color-shadow);
@@ -162,16 +163,16 @@ a.btn, #qr-reader__dashboard_section_swaplink {
 
 footer {
     position: fixed;
-    background: #fff;
+    background: var(--color-soft);
     width: 100vw;
     left: 0;
     bottom: 0;
     z-index: 20;
     display: flex;
     align-items: center;
-    justify-content: center;
     padding: 0;
     box-shadow: 0 0 6px rgba(0, 0, 120, .2);
+    border-top: 2px solid #fff;
 }
 
 footer a.btn {
@@ -181,20 +182,22 @@ footer a.btn {
 footer a {
     display: flex;
     text-decoration: none;
-    font-size: 12px;
+    font-size: 10px;
     color: inherit;
-    width: 100px;
-    height: 64px;
+    flex-basis: 33.333%;
+    height: 50px;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     transition: .1s;
+    margin: -2px 0 0;
     user-select: none;
+    border-top: 2px solid transparent;
 }
 
 footer a.active {
     pointer-events: none;
-    background: var(--color-secondary-light);
+    border-top: 2px solid var(--color-secondary-medium);
 }
 
 footer a:active {
@@ -203,27 +206,48 @@ footer a:active {
 }
 
 footer a:focus {
-    background: var(--color-secondary-light);
     transition: .4s ease-out;
+    border-top: 2px solid var(--color-secondary-medium);
+}
+
+footer a span {
+    color: var(--color-primary-medium);
 }
 
 footer a.active span,
 footer a:focus span {
-    color: var(--color-primary);
+    color: var(--color-secondary-medium);
+}
+
+footer a:focus span {
+    animation: blink .8s .3s infinite both;
+}
+
+footer a svg path {
+    fill: var(--color-primary-medium);
 }
 
 footer a.active svg path,
 footer a:focus svg path {
-    fill: var(--color-primary);
+    fill: var(--color-secondary-medium);
+}
+
+footer a:focus svg path {
+    fill: var(--color-secondary-medium);
+}
+
+footer:focus-within a.active {
+    border-top: 2px solid transparent;
+    transition: .4s ease-in;
 }
 
 footer:focus-within a.active svg path {
-    fill: inherit;
+    fill: var(--color-primary-medium);
     transition: .4s ease-in;
 }
 
 footer:focus-within a.active span {
-    color: inherit;
+    color: var(--color-primary-medium);
     transition: .4s ease-in;
 }
 
@@ -238,7 +262,7 @@ footer a:active span {
 }
 
 footer svg {
-    width: 36px;
+    width: 30px;
 }
 
 footer span {
@@ -261,7 +285,9 @@ footer span {
 
 .profile h5 {
     margin: 0;
-    font-weight: 600;
+    font-weight: 400;
+    font-size: 14px;
+    color: var(--color-primary-light);
 }
 
 /* Scanner */
@@ -492,6 +518,79 @@ tr:last-child td {
     border-bottom: none;
 }
 
+/* Notification */
+
+.notification {
+    padding: 16px;
+    margin-bottom: 16px;
+}
+
+.notification div {
+    display: block;
+    opacity: 0;
+    animation: fade-in .3s .5s forwards;
+}
+
+.notification svg {
+    max-width: 100px;
+    animation: blink 0.6s 1 both;
+}
+
+.notification section {
+    padding: 8px 8px 10px;
+    margin: 16px;
+    background: rgba(0, 0, 0, .5);
+    border-radius: 6px;
+    color: var(--color-bright);
+    opacity: 0;
+    animation: swing-in-top-fwd 0.5s .3s cubic-bezier(0.175, 0.885, 0.320, 1.275) both, zoom 0.5s 1s forwards;
+}
+
+.notification section h3 {
+    margin: 8px 0;
+    line-height: 1.3;
+}
+
+.notification section h3 small {
+    font-weight: 400;
+    font-size: 14px;
+    color: var(--color-primary-light);
+}
+
+.notification h2 {
+    margin: 6px;
+    font-size: 23px;
+    animation: blink 0.6s 1 both;
+}
+
+.notification.success svg path {
+    fill: var(--color-success);
+}
+
+.notification.success h2 {
+    color: var(--color-success);
+}
+
+.notification.error svg path {
+    fill: var(--color-danger);
+}
+
+.notification.error h2 {
+    color: var(--color-danger);
+}
+
+.notification h4 {
+    font-size: 17px;
+    margin: 0 0 3px;
+}
+
+.notification h5 {
+    margin: 0 0 16px;
+    font-weight: 400;
+    font-size: 14px;
+    color: var(--color-primary-light);
+}
+
 /* Animation */
 
 @keyframes fade-in {
@@ -515,5 +614,33 @@ tr:last-child td {
     25%,
     75% {
         opacity: 0;
+    }
+}
+
+@keyframes swing-in-top-fwd {
+    0% {
+        transform: rotateX(-100deg);
+        transform-origin: top;
+        opacity: 0;
+    }
+
+    100% {
+        transform: rotateX(0deg);
+        transform-origin: top;
+        opacity: 1;
+    }
+}
+
+@keyframes zoom {
+    0% {
+        transform: scale(1);
+        transform-origin: center;
+    }
+
+    100% {
+        transform: scale(1.07);
+        transform-origin: center;
+        opacity: 1;
+        box-shadow: var(--box-shadow-high);
     }
 }
