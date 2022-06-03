@@ -15,7 +15,7 @@
     --color-danger: #ff4961;
     --color-success: #2dd36f;
     --color-soft: #f9f9f9;
-    --color-bright: #ffff46;
+    --color-bright: #FFEB3B;
     --border-radius: 16px;
     --box-shadow: -1px -1px 2px var(--color-highlight), 1px 1px 2px var(--color-shadow), 0 0 1px var(--color-shadow);
     --box-shadow-inset: inset 1px 1px 2px var(--color-shadow), inset -1px -1px 2px var(--color-highlight), inset 0 0 1px var(--color-shadow);
@@ -126,7 +126,7 @@ textarea:focus, input:focus, select:focus {
 }
 
 input:focus {
-    background: #ffffe4;
+    background: #ffd;
     box-shadow: var(--box-shadow-inset);
 }
 
@@ -523,6 +523,7 @@ tr:last-child td {
 .notification {
     padding: 16px;
     margin-bottom: 16px;
+    animation: swing-in-top-fwd 0.5s cubic-bezier(0.175, 0.885, 0.320, 1.275) both;
 }
 
 .notification div {
@@ -537,13 +538,13 @@ tr:last-child td {
 }
 
 .notification section {
-    padding: 8px 8px 10px;
+    padding: 8px 16px 10px;
     margin: 16px;
-    background: rgba(0, 0, 0, .5);
-    border-radius: 6px;
+    background: rgba(0, 0, 0, .4);
+    border-radius: 4px;
     color: var(--color-bright);
     opacity: 0;
-    animation: swing-in-top-fwd 0.5s .3s cubic-bezier(0.175, 0.885, 0.320, 1.275) both, zoom 0.5s 1s forwards;
+    animation: swing-in-top-fwd 0.5s .3s cubic-bezier(0.175, 0.885, 0.320, 1.275) both, zoom .6s ease-out 1s forwards;
 }
 
 .notification section h3 {
@@ -635,12 +636,21 @@ tr:last-child td {
     0% {
         transform: scale(1);
         transform-origin: center;
+        background: rgba(0, 0, 0, .4);
+    }
+
+    30% {
+        transform: scale(.98);
+    }
+
+    60% {
+        transform: scale(.98);
     }
 
     100% {
-        transform: scale(1.07);
+        transform: scale(1.1);
         transform-origin: center;
-        opacity: 1;
+        background: rgba(0, 0, 0, .5);
         box-shadow: var(--box-shadow-high);
     }
 }
