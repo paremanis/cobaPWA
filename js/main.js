@@ -80,4 +80,7 @@ Date.prototype.addHours = function(h) {
     return this;   
  }
 
-
+function doLogout(){
+    sessionStorage.clear(); 
+    window.open("/", "_self");
+}
