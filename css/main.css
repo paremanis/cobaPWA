@@ -28,7 +28,7 @@
 body {
     background: var(--color-soft);
     background-attachment: fixed;
-    padding: 42px 8px 60px;
+    padding: 70px 8px 60px;
     font-family: 'Rubik', sans-serif;
     text-align: center;
 }
@@ -58,18 +58,16 @@ h1 {
 body>h2 {
     position: fixed;
     margin: 0;
-    text-transform: uppercase;
-    background: var(--color-primary);
+    background: var(--color-soft);
     width: 100vw;
     font-size: 18px;
     left: 0;
     top: 0;
-    color: var(--color-light);
     height: 44px;
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 0 6px rgba(0, 0, 120, .2);
+    /* box-shadow: 0 0 6px rgba(0, 0, 120, .2); */
     z-index: 20;
 }
 
@@ -271,35 +269,48 @@ footer span {
 
 /* Profile */
 
+.profile {
+    background: var(--color-primary-light);
+    padding: 8px 16px;
+    width: calc(100vw - 32px);
+    position: fixed;
+    left: 0;
+    top: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 20;
+}
+
 .profile div {
-    display: block;
-    text-align: left;
-    margin: auto;
-    width: fit-content;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: calc(100vw - 32px);
 }
 
-.profile h4 {
-    font-size: 17px;
-    margin: 0 0 3px;
+.profile legend {
+    display: none;
 }
 
-.profile h5 {
+.profile h4, .profile h5 {
+    font-size: 13px;
     margin: 0;
     font-weight: 400;
-    font-size: 14px;
-    color: var(--color-primary-light);
 }
 
 /* Scanner */
 
 #qr-reader {
-    margin: var(--gap) auto;
+    margin: -3px 0 0;
     border-radius: var(--border-radius);
     background: #fff;
-    border: 1px solid rgba(0, 0, 0, .1) !important;
-    max-width: 386px;
-    box-shadow: var(--box-shadow-high);
-    background: var(--gradient-light);
+    border: none !important;
+    width: 100vw;
+    background: transparent;
+    position: fixed !important;
+    left: 0;
+    padding: 0 !important;
 }
 
 #qr-reader input[type="file"] {
@@ -311,9 +322,8 @@ footer span {
 }
 
 #qr-reader>div:first-child {
-    padding: 12px 0 10px !important;
-    border-radius: var(--border-radius) var(--border-radius) 0 0;
-    background: var(--gradient-primary);
+    padding: 0 !important;
+    border: none !important;
 }
 
 #qr-reader__dashboard_section_swaplink {
@@ -325,6 +335,7 @@ footer span {
     border: 1px solid var(--color-primary);
     color: var(--color-primary);
     max-width: none;
+    display: none !important;
 }
 
 #qr-reader>div:first-child>span:first-child {
@@ -333,28 +344,31 @@ footer span {
 
 #qr-reader__status_span {
     display: block;
-    color: var(--color-light) !important;
     line-height: 1;
     margin: auto !important;
     padding: 0 !important;
     float: none !important;
     text-align: center;
     background: transparent !important;
-    font-size: 16px;
+    font-size: 18px !important;
     font-weight: 600;
-    text-transform: uppercase;
-}
-
-#qr-reader__scan_region {
-    margin-top: 36px;
+    position: fixed;
+    top: 12px;
+    z-index: 100;
+    left: 0;
+    width: 100vw;
+    color: red;
 }
 
 div#qr-reader__scan_region img {
-    mix-blend-mode: multiply;
+    margin: 16px auto;
+    width: 240px!important;
 }
 
 #qr-reader__dashboard {
-    padding-bottom: 32px;
+    position: fixed;
+    bottom: 100px;
+    width: 100vw !important;
 }
 
 #qr-reader__dashboard_section {
@@ -363,6 +377,7 @@ div#qr-reader__scan_region img {
 
 #qr-reader__dashboard_section_csr button {
     transform: scale(.8);
+    margin: 52px 0 -10px;
 }
 
 select#qr-reader__camera_selection {
@@ -381,14 +396,28 @@ select:focus#qr-reader__camera_selection {
     box-shadow: var(--box-shadow-inset);
 }
 
-#qr-reader__dashboard_section_csr span {
+#qr-reader__dashboard_section_csr>span:first-child {
     font-weight: 600;
     font-size: 14px;
+    margin: 20px 0 -40px;
+    display: block;
 }
 
 #qr-reader__filescan_input {
     width: 100% !important;
     max-width: 260px;
+}
+
+#qr-reader__header_message {
+    border: none !important;
+    font-size: 13px !important;
+    text-align: center;
+    margin-top: 16px !important;
+    position: fixed;
+    top: 80px;
+    z-index: 20;
+    text-align: center;
+    width: 100vw;
 }
 
 #result {
