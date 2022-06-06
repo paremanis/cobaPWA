@@ -86,6 +86,29 @@ Date.prototype.addHours = function(h) {
  }
 
 function doLogout(){
-    sessionStorage.clear(); 
-    window.open("/", "_self");
+    var logout = JSON.stringify({
+        'request_type' : 'logout',
+        'id_user' : sessionStorage.getItem('id_user')
+    });
+    
+    // fetch API
+    var url = "https://haris.globalprestasi.sch.id/api/vm.php";
+
+    fetch(url, {
+        method : "POST",
+        headers : {
+            'Accept' : 'application/JSON',
+        },
+        body : logout,
+    })
+    .then((response) => {
+        return response.json();
+      })
+      .then((data) => {            
+        sessionStorage.clear(); 
+        window.open("/", "_self");
+      })
+      .catch(function(error) {
+        console.log(error);
+      });
 }

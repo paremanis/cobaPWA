@@ -21,6 +21,7 @@
         <section>
             <h3 id="trans_code"></h3>
             <h3 id="merchant"></h3>
+            <h3 id="date"></h3>
         </section>
         <div>
             <h4 id="nama"></h4>
@@ -70,10 +71,12 @@
         const err_msg = localStorage.getItem("error_message");
         const transaction_code = localStorage.getItem("trans_code");
         const merchant_name = localStorage.getItem("merchant");
+        const date = localStorage.getItem("date");
         if(checkStatus == "success") {
             document.getElementById("notif_error").style.display = "none";
             document.getElementById("trans_code").innerHTML = '<small>Transaction Code:</small><br>' + transaction_code;
             document.getElementById("merchant").innerHTML = '<small>Merchant Name:</small><br>' + merchant_name;
+            document.getElementById("date").innerHTML = '<small>Date :</small><br>' + date;
         } else {
             document.getElementById("notif_success").style.display = "none";
             document.getElementById("error_message").innerHTML = '<small>Error Message:</small><br>' + err_msg;

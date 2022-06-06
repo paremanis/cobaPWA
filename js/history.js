@@ -17,9 +17,20 @@ function history(){
         return response.json();
       })
       .then((data) => {
-          console.log(data);
+        const data_history = data.data;
+            const dataTables = data_history.map(function(value){
+                return (
+                    `<tr>
+                        <td>${value.trans_date}</td>
+                        <td>${value.merchant_name}</td>
+                    </tr>`
+                );
+            }).join('');
+        const tabelBody = document.querySelector("#table_history");
+        tabelBody.innerHTML = dataTables;
+        document.getElementById("no_data").style.display = "none";
       })
       .catch(function(error) { 
-          console.log(error);
+        document.getElementById("table_history").style.display = "none";
       });  
 }

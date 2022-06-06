@@ -22,12 +22,13 @@ function onScanSuccess(decodedText, decodedResult) {
           if (data.status == "error"){
             localStorage.setItem("scan_status", "error");            
             localStorage.setItem("error_message", data.message);
-            window.open('/notification.html', '_self'); 
+            // window.open('/notification.html', '_self'); 
           } else {              
-            localStorage.setItem("scan_status", "success");             
-            window.open('/notification.html', '_self');     
+            localStorage.setItem("scan_status", "success");   
             localStorage.setItem("trans_code", data.trans_code);    
-            localStorage.setItem("merchant", data.merchant);
+            localStorage.setItem("merchant", data.merchant);    
+            localStorage.setItem("date", data.date);             
+            // window.open('/notification.html', '_self');   
           }
       })
       .catch(function(error) { 
