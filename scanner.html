@@ -16,13 +16,12 @@
 
     <section class="profile">
         <div>
-            <h4>Hanafi Adib Nugraha</h4>
-            <h5>NRK: 65361879</h5>
+            <h4 id="nama"></h4>
+            <h5 id="nrk"></h5>
         </div>
     </section>
 
     <div id="qr-reader"></div>
-    <p id="result"></p>
 
     <footer>
 
@@ -47,15 +46,7 @@
 
     <!--register service worker -->
     <script src="js/sw-declaration.js"></script>
-    <script>
-        function onScanSuccess(decodedText, decodedResult) {
-            console.log(`Code scanned = ${decodedText}`, decodedResult);
-            document.getElementById('result').innerHTML = `Code scanned = ${decodedText}`;
-        }
-        var html5QrcodeScanner = new Html5QrcodeScanner(
-            "qr-reader", { fps: 10, qrbox: 250 });
-        html5QrcodeScanner.render(onScanSuccess);
-    </script>
+    <script src="js/scan.js"></script>
 </body>
 
 </html>
