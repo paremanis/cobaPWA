@@ -3,12 +3,13 @@ const password = document.getElementById("password");
 
 function doLogin(){
     var data = JSON.stringify({
+        'request_type' : 'login',
         'username' : username.value,
         'password' : password.value
     });
     
-    // fetch API from mecallapi
-    var url = "https://www.mecallapi.com/api/login";
+    // fetch API
+    var url = "https://cors-gps-pwa.herokuapp.com/https://haris.globalprestasi.sch.id/api/vm.php";
     const alert = document.getElementById("alert");
 
     fetch(url, {
@@ -18,33 +19,33 @@ function doLogin(){
             'Content-type' : 'application/JSON'
         },
         body : data,
-    }).then(function(response){
-        if (response.ok){            
-            // cookies
+    })
+    .then((response) => {
+        return response.json();
+      })
+      .then((data) => {
+            //set cookies
             document.cookie = "uname=" + username.value;
             document.cookie = "pass=" + password.value;
-
-            sessionStorage.setItem("AuthenticationState", "Authenticated");
-                
-            //This authentication key will expire in 1 hour.
+            // set session storage
+            sessionStorage.setItem("AuthenticationState", data.token);
             sessionStorage.setItem("AuthenticationExpires", new Date().addHours(4));
-            
-            //Push the user over to the next page.
-            window.open('/scanner.html', '_self');         
-            return response.json();
-        } else {
-            // alert('Pastikan username dan Pasword sudah benar');
+            sessionStorage.setItem("name", data.user.name);
+            sessionStorage.setItem("nrk", data.user.id);
+
+            window.open('/scanner.html', '_self');  
+      })
+      .catch(function(error) {
             alert.classList.remove('hide');
             alert.classList.add('blink');
             setTimeout(() => {
                 alert.classList.remove('blink');
             }, 1200);
-        }
-    })
+      });
 }
 
 function checkCookie() {
-    if (document.cookie.split(';').some((item) => item.trim().startsWith('uname='))) {
+    if (document.cookie.split(';').some((item) => item.trim().startsWith('uname=')) && document.cookie.split(';').some((item) => item.trim().startsWith('pass='))) {
         
         const cUsername = document.cookie
         .split('; ')
@@ -58,7 +59,6 @@ function checkCookie() {
         
         username.value = cUsername;
         password.value = cPassword;
-        // alert(new Date().addHours(4));
       }
 }
 
@@ -72,6 +72,11 @@ function checkSession(){
      }
      else {
        //The user is authenticated and the authentication has not expired.
+        const nama = document.getElementById("nama");
+        const nrk = document.getElementById("nrk");
+
+        nama.innerHTML = sessionStorage.getItem('name');
+        nrk.innerHTML = "NRK : " + sessionStorage.getItem('nrk');
      }
 }
 

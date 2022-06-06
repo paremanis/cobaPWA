@@ -22,6 +22,8 @@ self.addEventListener('install', event => {
   );
 });
 
+//cached dulu baru check network
+
 // self.addEventListener('fetch', (event) => {
 //     event.respondWith(caches.open(staticCacheName).then((cache) => {
 //       return cache.match(event.request).then((cachedResponse) => {
@@ -35,6 +37,8 @@ self.addEventListener('install', event => {
 //       });
 //     }));
 // });
+
+//check network dulu baru check cached
 
 self.addEventListener('fetch', (event) => {
   // Check if this is a navigation request
