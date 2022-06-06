@@ -408,8 +408,6 @@ div#qr-reader__scan_region img {
 #qr-reader__dashboard_section_csr>span:nth-of-type(2)>button:nth-child(1),
 #qr-reader__dashboard_section_csr>div>button {
     background: var(--color-primary);
-} {
-    background: var(--color-primary);
 }
 
 select#qr-reader__camera_selection {
