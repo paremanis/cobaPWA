@@ -286,7 +286,9 @@ footer span {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: calc(100vw - 32px);
+    width: 100%;
+    max-width: 480px;
+    margin: auto;
 }
 
 .profile legend {
