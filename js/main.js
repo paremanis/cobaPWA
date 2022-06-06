@@ -9,7 +9,7 @@ function doLogin(){
     });
     
     // fetch API
-    var url = "https://cors-gps-pwa.herokuapp.com/https://haris.globalprestasi.sch.id/api/vm.php";
+    var url = "https://haris.globalprestasi.sch.id/api/vm.php";
     const alert = document.getElementById("alert");
 
     fetch(url, {

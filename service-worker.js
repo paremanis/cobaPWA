@@ -6,6 +6,7 @@ const filesToCache = [
   'img/logo.png',
   'css/main.css',
   'js/main.js',
+  'js/scan.js',
   'js/sw-declaration.js',
   'js/html5-qrcode.min.js'
 ];
