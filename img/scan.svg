@@ -101,6 +101,36 @@
 			mix-blend-mode: screen;
 		}
 
+		#man {
+			transform-origin: 50%;
+			transform: translateX(-50px) scale(.9);
+			animation: move-right 4s forwards ease-out;
+		}
+
+		#women {
+			transform-origin: 50%;
+			transform: translateX(50px) scale(.9);
+			animation: move-left 4s forwards ease-out;
+		}
+
+		@keyframes move-left {
+			0% {
+				transform: translateX(50px) scale(.9);
+			}
+			100% {
+				transform: translateX(0) scale(1.1);
+			}
+		}
+
+		@keyframes move-right {
+			0% {
+				transform: translateX(-50px) scale(.9);
+			}
+			100% {
+				transform: translateX(0) scale(1.1);
+			}
+		}
+
 		@keyframes redline {
 			0% {
 				transform: translateY(0) scaleX(0);
