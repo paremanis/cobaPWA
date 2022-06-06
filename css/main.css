@@ -316,6 +316,17 @@ footer span {
     font-size: 13px;
     margin: 0;
     font-weight: 400;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.profile h4 {
+    max-width: 60vw;
+}
+
+.profile h5 {
+    max-width: 30vw;
 }
 
 /* Scanner */
