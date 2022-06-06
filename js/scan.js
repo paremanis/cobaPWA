@@ -3,7 +3,7 @@ function onScanSuccess(decodedText, decodedResult) {
     const data = JSON.stringify({
         'request_type' : 'scan',
         'token' : sessionStorage.getItem('AuthenticationState'),
-        'id_user' : sessionStorage.getItem('nrk'),
+        'id_user' : sessionStorage.getItem('id_user'),
         'id_merchant' : decodedText
     });
 

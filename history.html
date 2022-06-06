@@ -11,13 +11,13 @@
     <title>History</title>
 </head>
 
-<body onload="checkSession()">
+<body onload="checkSession(); history()">
 
     <h2>History</h2>
     <section class="profile">
         <div>
-            <h4>Hanafi Adib Nugraha</h4>
-            <h5>NRK: 65361879</h5>
+            <h4 id="nama"></h4>
+            <h5 id="nrk"></h5>
         </div>
     </section>
 
@@ -103,6 +103,7 @@
     <!--register service worker -->
     <script src="js/sw-declaration.js"></script>
     <script src="js/main.js"></script>
+    <script src="js/history.js"></script>
 </body>
 
 </html>
