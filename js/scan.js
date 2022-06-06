@@ -25,7 +25,9 @@ function onScanSuccess(decodedText, decodedResult) {
             window.open('/notification.html', '_self'); 
           } else {              
             localStorage.setItem("scan_status", "success");             
-            window.open('/notification.html', '_self'); 
+            window.open('/notification.html', '_self');     
+            localStorage.setItem("trans_code", data.trans_code);    
+            localStorage.setItem("merchant", data.merchant);
           }
       })
       .catch(function(error) { 
