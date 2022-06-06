@@ -1,6 +1,5 @@
 function onScanSuccess(decodedText, decodedResult) {
     console.log(`Code scanned = ` + decodedText, decodedResult);
-    const nama = document.getElementById("nama");
     const data = JSON.stringify({
         'request_type' : 'scan',
         'token' : sessionStorage.getItem('AuthenticationState'),
@@ -13,7 +12,6 @@ function onScanSuccess(decodedText, decodedResult) {
         method : "POST",
         headers : {
             'Accept' : 'application/JSON',
-            'Content-type' : 'application/JSON'
         },
         body : data,
     })
@@ -21,10 +19,17 @@ function onScanSuccess(decodedText, decodedResult) {
         return response.json();
       })
       .then((data) => {
-            window.open('/notification.html', '_self');  
+          if (data.status == "error"){
+            localStorage.setItem("scan_status", "error");            
+            localStorage.setItem("error_message", data.message);
+            window.open('/notification.html', '_self'); 
+          } else {              
+            localStorage.setItem("scan_status", "success");             
+            window.open('/notification.html', '_self'); 
+          }
       })
-      .catch(function(error) {
-            window.open('/notification.html', '_self');  
+      .catch(function(error) { 
+          console.log(error);
       });   
 }
 var html5QrcodeScanner = new Html5QrcodeScanner(

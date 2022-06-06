@@ -11,7 +11,7 @@
     <title>Scan Result</title>
 </head>
 
-<body onload="checkSession()">
+<body onload="checkSession(); scanned()">
     <h2>Scanner</h2>
 
     <fieldset class="notification success" id="notif_success">
@@ -23,8 +23,8 @@
             <h3><small>Merchant Name:</small><br>Soto Kuning Pak Yusup</h3>
         </section>
         <div>
-            <h4>Hanafi Adib Nugraha</h4>
-            <h5>NRK: 65361879</h5>
+            <h4 id="nama"></h4>
+            <h5 id="nrk"></h5>
         </div>
     </fieldset>
 
@@ -33,11 +33,11 @@
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm0 448c-110.5 0-200-89.5-200-200S145.5 56 256 56s200 89.5 200 200-89.5 200-200 200zm101.8-262.2L295.6 256l62.2 62.2c4.7 4.7 4.7 12.3 0 17l-22.6 22.6c-4.7 4.7-12.3 4.7-17 0L256 295.6l-62.2 62.2c-4.7 4.7-12.3 4.7-17 0l-22.6-22.6c-4.7-4.7-4.7-12.3 0-17l62.2-62.2-62.2-62.2c-4.7-4.7-4.7-12.3 0-17l22.6-22.6c4.7-4.7 12.3-4.7 17 0l62.2 62.2 62.2-62.2c4.7-4.7 12.3-4.7 17 0l22.6 22.6c4.7 4.7 4.7 12.3 0 17z"/></svg>
         <h2>Transaction Error</h2>
         <section>
-            <h3><small>Error Message:</small><br id="error_message"></h3>
+            <h3 id="error_message"></h3>
         </section>
         <div>
-            <h4>Hanafi Adib Nugraha</h4>
-            <h5>NRK: 65361879</h5>
+            <h4 id="nama"></h4>
+            <h5 id="nrk"></h5>
         </div>
     </fieldset>
 
@@ -64,7 +64,20 @@
 
     <!--register service worker -->
     <script src="js/sw-declaration.js"></script>
-    <script src="js/scan.js"></script>
+    <script>
+        function scanned(){
+        const checkStatus = localStorage.getItem("scan_status");
+        const err_msg = localStorage.getItem("error_message");
+        if(checkStatus == "success") {
+            document.getElementById("notif_error").style.display = "none";
+        } else {
+            document.getElementById("notif_success").style.display = "none";
+            document.getElementById("error_message").innerHTML = '<small>Error Message:</small><br>' + err_msg;
+        }
+
+        }
+    </script>
+
 </body>
 
 </html>

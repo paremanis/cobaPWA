@@ -16,7 +16,6 @@ function doLogin(){
         method : "POST",
         headers : {
             'Accept' : 'application/JSON',
-            'Content-type' : 'application/JSON'
         },
         body : data,
     })
@@ -31,7 +30,8 @@ function doLogin(){
             sessionStorage.setItem("AuthenticationState", data.token);
             sessionStorage.setItem("AuthenticationExpires", new Date().addHours(4));
             sessionStorage.setItem("name", data.user.name);
-            sessionStorage.setItem("nrk", data.user.id);
+            sessionStorage.setItem("id_user", data.user.id);            
+            sessionStorage.setItem("nrk", data.user.nrk);
 
             window.open('/scanner.html', '_self');  
       })
