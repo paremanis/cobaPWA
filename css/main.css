@@ -12,11 +12,12 @@
     --color-secondary-light: #f5e1e2;
     --color-highlight: rgba(255, 255, 255, .3);
     --color-shadow: rgba(0, 0, 0, 0.3);
-    --color-danger: #ff4961;
     --color-success: #2dd36f;
     --color-soft: #f9f9f9;
     --color-bright: #FFEB3B;
     --border-radius: 16px;
+    --border-radius-button: 30px;
+    --border-radius-input: 4px;
     --box-shadow: -1px -1px 2px var(--color-highlight), 1px 1px 2px var(--color-shadow), 0 0 1px var(--color-shadow);
     --box-shadow-inset: inset 1px 1px 2px var(--color-shadow), inset -1px -1px 2px var(--color-highlight), inset 0 0 1px var(--color-shadow);
     --box-shadow-high: 0 3px 8px rgba(0, 0, 120, .2);
@@ -78,7 +79,7 @@ h1+p {
 
 #alert {
     font-size: 14px;
-    color: var(--color-danger);
+    color: var(--color-secondary);
     font-weight: bold;
 }
 
@@ -88,6 +89,10 @@ h1+p {
 
 .blink {
     animation: blink 0.6s 2 both;
+}
+
+.login-form {
+    padding-bottom: 24px;
 }
 
 .login-form label {
@@ -102,18 +107,22 @@ h1+p {
     width: 100%;
 }
 
-input, button, .btn, #qr-reader__dashboard_section_swaplink {
+input, button, .btn, select, #qr-reader__dashboard_section_swaplink {
     transition: .1s;
-    border: none;
-    border-radius: 4px;
+    border: none;    
     font-family: var(--font);
 }
 
-button, .btn, #qr-reader__dashboard_section_swaplink {
-    padding: var(--gap);
+input, select {
+    border-radius: var(--border-radius-input);
 }
 
-input {
+button, .btn, #qr-reader__dashboard_section_swaplink {
+    padding: var(--gap) calc(var(--gap) * 2);
+    border-radius: var(--border-radius-button);
+}
+
+input, select {
     padding: 6px;
     box-shadow: var(--box-shadow-inset);
     background: #fff;
@@ -133,11 +142,19 @@ input[type="file"] {
     margin-top: 16px;
 }
 
+select {
+    appearance: none;
+    background: rgba(0, 0, 0, .03) url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" class="ionicon" viewBox="0 0 512 512"><title>Chevron Down</title><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="48" d="M112 184l144 144 144-144"/></svg>') no-repeat right center !important;
+    padding-right: 30px !important;
+    background-size: 18px!important;
+    background-position-x: 98% !important;
+}
+
 button, .btn, #qr-reader__dashboard_section_swaplink {
     margin: 24px auto;
     font-size: 16px;
-    width: 100%;
-    max-width: 214px;
+    width: fit-content;
+    min-width: 162px;
     background: var(--gradient-secondary);
     color: var(--color-light);
     text-transform: uppercase;
@@ -388,12 +405,19 @@ div#qr-reader__scan_region img {
     margin: 52px 0 -10px;
 }
 
+#qr-reader__dashboard_section_csr>span:nth-of-type(2)>button:nth-child(1),
+#qr-reader__dashboard_section_csr>div>button {
+    background: var(--color-primary);
+} {
+    background: var(--color-primary);
+}
+
 select#qr-reader__camera_selection {
     display: block;
     margin: 6px auto;
     padding: 8px;
     border: none;
-    border-radius: 4px;
+    border-radius: var(--border-radius-input);
     font-family: var(--font);
     box-shadow: var(--box-shadow-inset);
     background: rgba(0, 0, 0, .03);
@@ -461,7 +485,7 @@ fieldset legend {
     background: var(--gradient-secondary);
     box-shadow: var(--box-shadow-high);
     padding: 3px 10px;
-    border-radius: 4px;
+    border-radius: var(--border-radius-input);
     margin-bottom: -10px;
 }
 
@@ -487,14 +511,14 @@ fieldset input {
 
 fieldset button {
     margin: 16px auto 0;
-    width: fit-content;
-    min-width: 120px;
     transform: scale(.8);
     display: block;
+    background: var(--color-primary-light);
+    color: var(--color-primary);
 }
 
 .no-data {
-    color: var(--color-danger);
+    color: var(--color-secondary);
     margin: 40px 0;
 }
 
@@ -579,7 +603,7 @@ tr:last-child td {
     padding: 8px 16px 10px;
     margin: 16px;
     background: rgba(0, 0, 0, .4);
-    border-radius: 4px;
+    border-radius: var(--border-radius-input);
     color: var(--color-bright);
     opacity: 0;
     animation: swing-in-top-fwd 0.5s .3s cubic-bezier(0.175, 0.885, 0.320, 1.275) both, zoom .6s ease-out 1s forwards;
@@ -611,11 +635,11 @@ tr:last-child td {
 }
 
 .notification.error svg path {
-    fill: var(--color-danger);
+    fill: var(--color-secondary);
 }
 
 .notification.error h2 {
-    color: var(--color-danger);
+    color: var(--color-secondary);
 }
 
 .notification h4 {
