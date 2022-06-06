@@ -1,6 +1,6 @@
 {
-    "name": "GPS Lunch Voucher Scanner",
-    "short_name": "Voucher Scanner",
+    "name": "GPS Lunch Voucher",
+    "short_name": "Lunch Voucher",
     "theme_color": "#2C2976",
     "background_color": "#2C2976",
     "display": "standalone",
