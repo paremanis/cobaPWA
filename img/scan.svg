@@ -22,8 +22,8 @@
 	<path fill="#fff" d="M193.1 154.5h-2.7v-28.8h27.4v2.7h-24.7v26.1zm128.5 0h-2.7v-26.1h-24.7v-2.7h27.4v28.8zM217.8 257h-27.4v-26.1h2.7v23.4h24.7v2.7zm103.8 0h-27.4v-2.7h24.7v-23.4h2.7V257z"/>
 	<path id="redline" fill="red" d="M190.4 125.7h131.2v2.7H190.4z"/>
 	<path opacity=".3" fill="#FFF" d="M337.5 31.6 151 108.5l.4 56.1 210.1-79.9V57.5c0-13.7-10.6-24.9-24-25.9zM150.9 99.7c31.7-15.1 103.7-51.4 136.8-68.2H214l-63.4 34.1v7.5l.3 26.6z"/>
-	<text text-anchor="middle" font-family="Rubik, Roboto, sans-serif" font-weight="600" font-size="32px">
-		<tspan y="330" x="256">SCAN</tspan>
+	<text text-anchor="middle" font-family="Rubik, Roboto, sans-serif" font-weight="500" font-size="32px">
+		<tspan y="330" x="258">SCAN</tspan>
 		<tspan y="362" x="256">QR CODE</tspan>
 	</text>
 </g>
