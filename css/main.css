@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@400;600&display=swap');
 
 :root {
     --gap: 16px;
@@ -300,12 +300,14 @@ footer span {
 }
 
 .profile div {
-    display: flex;
+    display: grid;
     justify-content: space-between;
     align-items: center;
     width: 100%;
     max-width: 480px;
     margin: auto;
+    grid-gap: 10px;
+    grid-template-columns: 1fr 120px;
 }
 
 .profile legend {
@@ -313,7 +315,7 @@ footer span {
 }
 
 .profile h4, .profile h5 {
-    font-size: 13px;
+    font-size: 12.5px;
     margin: 0;
     font-weight: 400;
     white-space: nowrap;
@@ -322,11 +324,11 @@ footer span {
 }
 
 .profile h4 {
-    max-width: 55vw;
+    text-align: left;
 }
 
 .profile h5 {
-    max-width: 35vw;
+    text-align: right;
 }
 
 /* Scanner */
