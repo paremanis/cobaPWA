@@ -31,9 +31,14 @@ function doLogin(){
             sessionStorage.setItem("AuthenticationExpires", new Date().addHours(4));
             sessionStorage.setItem("name", data.user.name);
             sessionStorage.setItem("id_user", data.user.id);            
-            sessionStorage.setItem("nrk", data.user.nrk);
+            sessionStorage.setItem("nrk", data.user.nrk);         
+            sessionStorage.setItem("user_type", data.user_type);
 
-            window.open('/scanner.html', '_self');  
+            if (data.user_type == "user"){
+                window.open('/scanner.html', '_self');  
+            } else {
+                window.open('/order.html', '_self'); 
+            }
       })
       .catch(function(error) {
             alert.classList.remove('hide');
@@ -77,6 +82,30 @@ function checkSession(){
 
         nama.innerHTML = sessionStorage.getItem('name');
         nrk.innerHTML = "NRK : " + sessionStorage.getItem('nrk');
+
+        fetch('footer.html')
+        .then(response=> response.text())
+        .then((text)=> {
+            const user_type = sessionStorage.getItem('user_type');
+            document.getElementById('menu_footer').innerHTML = text;
+
+            if(user_type == "user"){
+                document.getElementById("page_order").style.display = "none";
+            } 
+            else {
+                document.getElementById("page_scanner").style.display = "none";
+            }
+            
+            if(window.location.pathname == "/scanner"){
+                document.getElementById("page_scanner").classList.add("active");
+            }
+            else if(window.location.pathname == "/history"){
+                document.getElementById("page_history").classList.add("active");
+            }
+            else if(window.location.pathname == "/order"){
+                document.getElementById("page_order").classList.add("active");
+            }
+        });
      }
 }
 
