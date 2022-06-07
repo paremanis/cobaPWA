@@ -76,7 +76,7 @@ function history_merchant(){
         const dataTables = data_order.map(function(value){
             return (
                 `<tr>
-                    <td>${value.trans_date}</td>
+                    <td>${value.trans_time}</td>
                     <td>${value.trans_code}</td>
                     <td>${value.employee_name}</td>
                 </tr>`
@@ -85,7 +85,7 @@ function history_merchant(){
         const tabelBody = document.querySelector("#tbody_order");
         tabelBody.innerHTML = dataTables;
         document.getElementById("no_data").style.display = "none";
-        document.getElementById("date_order").innerHTML = 'Date : ' + data_order[0].trans_date;
+        document.getElementById("date_order").innerHTML = 'Date : ' + data.trans_date;
         console.log(data);
       })
       .catch(function(error) { 
