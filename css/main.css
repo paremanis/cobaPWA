@@ -404,7 +404,7 @@ div#qr-reader__scan_region img {
     margin: 16px auto 0;
     width: 360px!important;
     max-width: calc(100vw - 40px);
-    height: 45vh;
+    height: 50vh;
 }
 
 #qr-reader__dashboard {
