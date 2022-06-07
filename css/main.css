@@ -150,6 +150,14 @@ select {
     background-position-x: 98% !important;
 }
 
+@media (pointer:none), (pointer:coarse) {
+    input[type="date"]::-webkit-inner-spin-button,
+    input[type="date"]::-webkit-calendar-picker-indicator {
+        display: none;
+        -webkit-appearance: none;
+    }
+}
+
 button, .btn, #qr-reader__dashboard_section_swaplink {
     margin: 24px auto;
     font-size: 16px;
