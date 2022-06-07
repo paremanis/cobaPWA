@@ -155,11 +155,11 @@
 				transform: translateY(0) scaleX(0);
 				animation-timing-function: ease-in;
 			}
-			20% {
+			10% {
 				transform: translateY(0) scaleX(1);
 				animation-timing-function: linear;
 			}
-			70% {
+			80% {
 				transform: translateY(128.64px) scaleX(1);
 				animation-timing-function: ease-out;
 			}
