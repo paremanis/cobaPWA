@@ -704,6 +704,10 @@ section+h4 {
     justify-content: space-between;
 }
 
+section+h4:empty {
+    display: none;
+}
+
 /* Animation */
 
 @keyframes fade-in {
