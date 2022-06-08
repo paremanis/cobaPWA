@@ -42,17 +42,18 @@ function history(){
         } else {
             let i = 1;
             let dataTables = '';
-            data_history.forEach((element) => { 
-                const trans_date = format_date(element.trans_date)               
+            data_history.forEach((element) => {               
                 dataTables += `<tr> 
-                                <td>${i++}</td>
-                                <td>${trans_date}</td>`;
+                                <td>${i++}</td>`;
                 if(user_type == "user"){
-                    dataTables += `<td>${element.trans_code}</td>
+                    dataTables += `<td>${element.trans_date}</td>
+                                        <td>${element.trans_code}</td>
                                         <td>${element.merchant_name}</td>
                                     </tr>`;
-                } else {
-                    dataTables += `<td>${element.jumlah}</td>
+                } else {                    
+                    const trans_date = format_date(element.trans_date); 
+                    dataTables += `<td>${trans_date}</td>
+                                    <td>${element.jumlah}</td>
                                     <td>
                                     <input type="button" onclick='setLocalTransDate("`+element.trans_date+`")' value="Detail"/>
                                     </td>
