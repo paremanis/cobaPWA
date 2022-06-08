@@ -15,7 +15,7 @@ function history(){
         var table_head = `<tr>
                             <th>No</th>
                             <th>Tanggal Transaksi</th>
-                            <th>Jumlah Order</th>
+                            <th>Jumlah Pesanan</th>
                             <th></th>
                           </tr>`;
         document.getElementById("nrk").style.display = "none";

@@ -8,24 +8,26 @@
     <link rel="stylesheet" href="css/main.css">
     <link rel="manifest" href="manifest.json">
     <link rel="icon" type="image/png" href="icons/192.png">
-    <title>Order</title>
+    <title>Pesanan</title>
 </head>
 
 <body onload="checkSession(); history_merchant()">
 
-    <h2>Order</h2>
+    <h2>Pesanan</h2>
     <section class="profile">
         <div>
             <h4 id="nama"></h4>
             <h5 id="nrk" hidden></h5>
-            <h5 id="date_order"></h5>
         </div>
     </section>
 
     <section class="no-data" id="no_data">
-        No Data Found
+        Tidak Ada Data
     </section> 
-    <h4 id="total_order"></h4>
+    <h4>
+        <span id="date_order"></span>
+        <span id="total_order"></span>
+    </h4>
     <table id="table_order">
         <thead>
             <tr>
