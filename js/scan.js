@@ -20,16 +20,17 @@ function onScanSuccess(decodedText, decodedResult) {
       })
       .then((data) => {
           if (data.status == "error"){
-            localStorage.setItem("scan_status", "error");            
-            localStorage.setItem("error_message", data.message);
+            sessionStorage.setItem("scan_status", "error");            
+            sessionStorage.setItem("error_message", data.message);
             window.open('/notification.html', '_self'); 
           } else {              
-            localStorage.setItem("scan_status", "success");   
-            localStorage.setItem("trans_code", data.trans_code);    
-            localStorage.setItem("merchant", data.merchant);    
-            localStorage.setItem("date", data.date);             
+            sessionStorage.setItem("scan_status", "success");   
+            sessionStorage.setItem("trans_code", data.trans_code);    
+            sessionStorage.setItem("merchant", data.merchant);    
+            sessionStorage.setItem("date_scan", data.date);             
             window.open('/notification.html', '_self');   
           }
+          console.log(data);
       })
       .catch(function(error) { 
           console.log(error);

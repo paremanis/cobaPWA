@@ -52,16 +52,16 @@
     <script src="js/sw-declaration.js"></script>
     <script>
         function scanned(){
-        const checkStatus = localStorage.getItem("scan_status");
-        const err_msg = localStorage.getItem("error_message");
-        const transaction_code = localStorage.getItem("trans_code");
-        const merchant_name = localStorage.getItem("merchant");
-        const date = localStorage.getItem("date");
+        const checkStatus = sessionStorage.getItem("scan_status");
+        const err_msg = sessionStorage.getItem("error_message");
+        const transaction_code = sessionStorage.getItem("trans_code");
+        const merchant_name = sessionStorage.getItem("merchant");
+        const date = sessionStorage.getItem("date_scan");
         if(checkStatus == "success") {
             document.getElementById("notif_error").style.display = "none";
             document.getElementById("trans_code").innerHTML = '<small>Kode Transaksi :</small><br>' + transaction_code;
             document.getElementById("merchant").innerHTML = '<small>Nama Merchant :</small><br>' + merchant_name;
-            document.getElementById("date").innerHTML = '<small>Date :</small><br>' + date;
+            document.getElementById("date").innerHTML = '<small>Tanggal :</small><br>' + date;
         } else {
             document.getElementById("notif_success").style.display = "none";
             document.getElementById("error_message").innerHTML = '<small>Erorr :</small><br>' + err_msg;
