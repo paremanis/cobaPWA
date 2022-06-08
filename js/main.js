@@ -81,7 +81,7 @@ function checkSession(){
         const nrk = document.getElementById("nrk");
 
         nama.innerHTML = sessionStorage.getItem('name');
-        nrk.innerHTML = "NRK : " + sessionStorage.getItem('nrk');
+        nrk.innerHTML = "NRK: " + sessionStorage.getItem('nrk');
 
         fetch('footer.html')
         .then(response=> response.text())

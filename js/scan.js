@@ -36,5 +36,5 @@ function onScanSuccess(decodedText, decodedResult) {
       });   
 }
 var html5QrcodeScanner = new Html5QrcodeScanner(
-    "qr-reader", { fps: 10, qrbox: 250, videoConstraints: { facingMode: { exact: "environment" } } });
+    "qr-reader", { fps: 10, qrbox: 250, rememberLastUsedCamera: true, });
 html5QrcodeScanner.render(onScanSuccess);
