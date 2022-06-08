@@ -13,7 +13,7 @@
 
 <body onload="checkSession(); history()">
 
-    <h2>History</h2>
+    <h2>Riwayat</h2>
     <section class="profile">
         <div>
             <h4 id="nama"></h4>
@@ -21,13 +21,15 @@
         </div>
     </section>
 
-    <form>
+    <form id="filter_history">
         <fieldset>
             <legend>Filter</legend>
             <div>
-                <label for="date_start">Date From</label>
+                <label for="date_start">Tanggal Awal</label>
                 <input type="date" id="date_start" name="date_start" required>
-                <label for="date_end">Date Through</label>
+                <label for="trans_code">Kode Transaksi</label>
+                <input type="text" id="trans_code" name="trans_code">
+                <label for="date_end">Tanggal Akhir</label>
                 <input type="date" id="date_end" name="date_end" required>
             </div>
             <button>Filter</button>
@@ -38,11 +40,8 @@
         No Data Found
     </section> 
     <table id="table_history">
-        <thead>
-            <tr>
-                <th>Date</th>
-                <th>Name</th>
-            </tr>
+        <thead id="thead_history">
+
         </thead>
         <tbody id="tbody_history">
             
