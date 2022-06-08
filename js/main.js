@@ -96,13 +96,13 @@ function checkSession(){
                 document.getElementById("page_scanner").style.display = "none";
             }
             
-            if(window.location.pathname == "/scanner"){
+            if(window.location.pathname == "/scanner.html"){
                 document.getElementById("page_scanner").classList.add("active");
             }
-            else if(window.location.pathname == "/history"){
+            else if(window.location.pathname == "/history.html"){
                 document.getElementById("page_history").classList.add("active");
             }
-            else if(window.location.pathname == "/order"){
+            else if(window.location.pathname == "/order.html"){
                 document.getElementById("page_order").classList.add("active");
             }
         });
