@@ -54,7 +54,7 @@ function history(){
                 } else {
                     dataTables += `<td>${element.jumlah}</td>
                                     <td>
-                                    <input type="button" onclick='setLocalDate("`+element.trans_date+`")' value="Detail"/>
+                                    <input type="button" onclick='setLocalTransDate("`+element.trans_date+`")' value="Detail"/>
                                     </td>
                                     </tr>`;
                 }
@@ -73,12 +73,21 @@ function history(){
 }
 
 function history_merchant(){
+    if (localStorage.getItem("date") === null) {
+        var data = JSON.stringify({
+            'request_type' : 'history_merchant_daily',
+            'token' : sessionStorage.getItem('AuthenticationState'),             
+        });
+    } else {        
+        var lclStrgDate = localStorage.getItem("date");
+        var data = JSON.stringify({
+            'request_type' : 'history_merchant_daily',
+            'token' : sessionStorage.getItem('AuthenticationState'), 
+            'date' : lclStrgDate        
+        });
+    }
     
-    const data = JSON.stringify({
-        'request_type' : 'history_merchant_daily',
-        'token' : sessionStorage.getItem('AuthenticationState'),
-        
-    });
+    console.log(data);
 
     const url = "https://haris.globalprestasi.sch.id/api/vm.php";
     fetch(url, {
@@ -95,6 +104,7 @@ function history_merchant(){
         const data_order = data.data;
         if (data_order.length === 0) {            
             document.getElementById("table_order").style.display = "none";
+            document.getElementById("total_order").style.display = "none";
         } else {   
             let i = 1;         
             const dataTables = data_order.map(function(value){
@@ -162,6 +172,11 @@ function format_date(d){
     return date[2]+ " "+ month;
 }
 
-function setLocalDate(date){
+function setLocalTransDate(date){
     window.localStorage.setItem('date',date);
+    window.open("/order.html", "_self");
+}
+
+function clearLocalTransDate(date){
+    localStorage.clear();
 }
