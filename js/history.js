@@ -15,7 +15,7 @@ function history(){
         var table_head = `<tr>
                             <th>No</th>
                             <th>Tanggal</th>
-                            <th>Jumlah</th>
+                            <th style="text-align:center;">Jumlah</th>
                             <th></th>
                           </tr>`;
         document.getElementById("nrk").style.display = "none";
@@ -53,7 +53,7 @@ function history(){
                 } else {                    
                     const trans_date = format_date(element.trans_date); 
                     dataTables += `<td>${trans_date}</td>
-                                    <td>${element.jumlah}</td>
+                                    <td style="text-align:center;">${element.jumlah}</td>
                                     <td>
                                     <input type="button" onclick='setLocalTransDate("`+element.trans_date+`")' value="Detail"/>
                                     </td>
