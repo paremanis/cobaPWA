@@ -15,7 +15,7 @@
     --color-success: #2dd36f;
     --color-soft: #f9f9f9;
     --color-bright: #FFEB3B;
-    --border-radius: 16px;
+    --border-radius: 12px;
     --border-radius-button: 30px;
     --border-radius-input: 4px;
     --box-shadow: -1px -1px 2px var(--color-highlight), 1px 1px 2px var(--color-shadow), 0 0 1px var(--color-shadow);
@@ -525,7 +525,7 @@ fieldset div {
     display: grid;
     grid-gap: 12px 6px;
     align-items: center;
-    grid-template-columns: 100px 1fr;
+    grid-template-columns: 110px 1fr;
     margin-top: 8px;
 }
 
@@ -608,6 +608,16 @@ td {
 
 tr:last-child td {
     border-bottom: none;
+}
+
+td input[type="button"] {
+    background: var(--color-primary-light);
+    box-shadow: var(--box-shadow);
+}
+
+td input[type="button"]:active {
+    filter: brightness(.9);
+    box-shadow: var(--box-shadow-inset);
 }
 
 /* Notification */
@@ -702,10 +712,6 @@ section+h4 {
     z-index: 20;
     display: flex;
     justify-content: space-between;
-}
-
-section+h4:empty {
-    display: none;
 }
 
 /* Animation */
