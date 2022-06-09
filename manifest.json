@@ -1,6 +1,6 @@
 {
-    "name": "GPS Lunch Voucher",
-    "short_name": "Lunch Voucher",
+    "name": "GPS Voucher Makan Siang",
+    "short_name": "GPS Voucher",
     "theme_color": "#2C2976",
     "background_color": "#2C2976",
     "display": "standalone",
