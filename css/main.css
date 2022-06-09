@@ -613,6 +613,8 @@ tr:last-child td {
 td input[type="button"] {
     background: var(--color-primary-light);
     box-shadow: var(--box-shadow);
+    font-size: 11px;
+    padding: 4px 8px;
 }
 
 td input[type="button"]:active {
