@@ -42,12 +42,14 @@ function history(){
       })
       .then((data) => {      
         const data_history = data.data;
+        let sumOrder = 0;
         fetchData = data_history;
         if (data_history.length === 0) {            
             document.getElementById("table_history").style.display = "none";
         } else if(localStorage.getItem("filter") === null){
             let i = 1;
-            data_history.forEach((element) => {               
+            data_history.forEach((element) => { 
+              sumOrder += parseInt(element.jumlah);              
                 dataTables += `<tr> 
                                 <td>${i++}</td>`;
                 if(user_type == "user"){
@@ -63,12 +65,18 @@ function history(){
                                     <input type="button" onclick='setLocalTransDate("`+element.trans_date+`")' value="Detail"/>
                                     </td>
                                     </tr>`;
+                    dataTables2 = `<tr>
+                                    <td>Total Order</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td>${sumOrder}</td>
+                                    </tr>`;
                 }
             });
             const tabelHead = document.querySelector("#thead_history");
             tabelHead.innerHTML = table_head;
             const tabelBody = document.querySelector("#tbody_history");
-            tabelBody.innerHTML = dataTables;            
+            tabelBody.innerHTML = dataTables + dataTables2;            
             document.getElementById("no_data").style.display = "none";
             document.getElementById("date_end").value = getToday();
             document.getElementById("date_start").value = getPast();
@@ -96,12 +104,14 @@ function filter_date(){
   let end = url.searchParams.get("date_end");         
   let startDate = +new Date(start);
   let endDate = +new Date(end);
-  let i = 1;
+  let i = 1;  
+  let sumOrder = 0;
   fetchData.filter((data) => {
     return +new Date(data.trans_date) >= startDate && +new Date(data.trans_date) <= endDate;
   })
   .forEach((element)=> {
     const trans_date = format_date(element.trans_date); 
+                    sumOrder += parseInt(element.jumlah);
                     dataFiltered += `<tr>
                     <td>${i++}</td>
                     <td>${trans_date}</td>
@@ -110,11 +120,17 @@ function filter_date(){
                                     <input type="button" onclick='setLocalTransDate("`+element.trans_date+`")' value="Detail"/>
                                     </td>
                                     </tr>`;
+                    dataFiltered2 = `<tr>
+                    <td>Total Order</td>
+                    <td></td>
+                                    <td></td>
+                                    <td>${sumOrder}</td>
+                                    </tr>`;
   });
   const tabelHead = document.querySelector("#thead_history");
   tabelHead.innerHTML = table_head;
   const tabelBody = document.querySelector("#tbody_history");
-  tabelBody.innerHTML = dataFiltered;
+  tabelBody.innerHTML = dataFiltered + dataFiltered2;
   document.getElementById("no_data").style.display = "none";  
 }
 
