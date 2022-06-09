@@ -105,6 +105,7 @@ function history_merchant(){
         const data_order = data.data;
         if (data_order.length === 0) {            
             document.getElementById("table_order").style.display = "none";
+            document.getElementById("order_info").style.display = "none";
             document.getElementById("total_order").style.display = "none";
         } else {   
             let i = 1;         
