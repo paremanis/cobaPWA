@@ -565,7 +565,7 @@ table {
 }
 
 table>tbody>tr>td:nth-of-type(1) {
-    padding-right: 0;
+    text-align: center;
 }
 
 thead {
