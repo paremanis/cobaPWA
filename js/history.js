@@ -4,9 +4,9 @@ function history(){
         var request_type = "history";
         var table_head = `<tr>
                             <th>No</th>
-                            <th>Tanggal Transaksi</th>
-                            <th>Kode Transaksi</th>
-                            <th>Nama Merchant</th>
+                            <th width="20%">Tanggal</th>
+                            <th width="20%">Kode</th>
+                            <th width="50%">Nama</th>
                           </tr>`;        
         document.getElementById("filter_history").style.display = "none";
     }
@@ -14,8 +14,8 @@ function history(){
         var request_type = "history_merchant";
         var table_head = `<tr>
                             <th>No</th>
-                            <th>Tanggal Transaksi</th>
-                            <th>Jumlah Pesanan</th>
+                            <th>Tanggal</th>
+                            <th>Jumlah</th>
                             <th></th>
                           </tr>`;
         document.getElementById("nrk").style.display = "none";
@@ -105,6 +105,7 @@ function history_merchant(){
         const data_order = data.data;
         if (data_order.length === 0) {            
             document.getElementById("table_order").style.display = "none";
+            document.getElementById("order_info").style.display = "none";
             document.getElementById("total_order").style.display = "none";
         } else {   
             let i = 1;         
