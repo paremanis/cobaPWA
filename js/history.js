@@ -1,8 +1,13 @@
+var fetchData = '';
+var dataTables = '';
+var table_head = '';
+var filteredHead = '';
+var dataFiltered = '';
 function history(){
     const user_type = sessionStorage.getItem('user_type');
     if(user_type == "user"){
         var request_type = "history";
-        var table_head = `<tr>
+        table_head = `<tr>
                             <th>No</th>
                             <th width="20%">Tanggal</th>
                             <th width="20%">Kode</th>
@@ -12,7 +17,7 @@ function history(){
     }
     else {        
         var request_type = "history_merchant";
-        var table_head = `<tr>
+        table_head = `<tr>
                             <th>No</th>
                             <th>Tanggal</th>
                             <th style="text-align:center;">Jumlah</th>
@@ -37,11 +42,11 @@ function history(){
       })
       .then((data) => {      
         const data_history = data.data;
+        fetchData = data_history;
         if (data_history.length === 0) {            
             document.getElementById("table_history").style.display = "none";
-        } else {
+        } else if(localStorage.getItem("filter") === null){
             let i = 1;
-            let dataTables = '';
             data_history.forEach((element) => {               
                 dataTables += `<tr> 
                                 <td>${i++}</td>`;
@@ -65,12 +70,52 @@ function history(){
             const tabelBody = document.querySelector("#tbody_history");
             tabelBody.innerHTML = dataTables;            
             document.getElementById("no_data").style.display = "none";
-            console.log(data)
-        }            
+            document.getElementById("date_end").value = getToday();
+            document.getElementById("date_start").value = getPast();
+
+        } else {
+          filter_date();      
+          let url_string = window.location;
+          let url = new URL(url_string);    
+          let start = url.searchParams.get("date_start");
+          let end = url.searchParams.get("date_end");
+          document.getElementById("date_end").value = end;
+          document.getElementById("date_start").value = start;
+        }         
       })
       .catch(function(error) { 
         console.log(error);
       });  
+}
+
+function filter_date(){
+  window.localStorage.setItem('filter', 'clicked');
+  let url_string = window.location;
+  let url = new URL(url_string);
+  let start = url.searchParams.get("date_start");
+  let end = url.searchParams.get("date_end");         
+  let startDate = +new Date(start);
+  let endDate = +new Date(end);
+  let i = 1;
+  fetchData.filter((data) => {
+    return +new Date(data.trans_date) >= startDate && +new Date(data.trans_date) <= endDate;
+  })
+  .forEach((element)=> {
+    const trans_date = format_date(element.trans_date); 
+                    dataFiltered += `<tr>
+                    <td>${i++}</td>
+                    <td>${trans_date}</td>
+                                    <td style="text-align:center;">${element.jumlah}</td>
+                                    <td>
+                                    <input type="button" onclick='setLocalTransDate("`+element.trans_date+`")' value="Detail"/>
+                                    </td>
+                                    </tr>`;
+  });
+  const tabelHead = document.querySelector("#thead_history");
+  tabelHead.innerHTML = table_head;
+  const tabelBody = document.querySelector("#tbody_history");
+  tabelBody.innerHTML = dataFiltered;
+  document.getElementById("no_data").style.display = "none";  
 }
 
 function history_merchant(){
@@ -181,4 +226,30 @@ function setLocalTransDate(date){
 
 function clearLocalTransDate(date){
     localStorage.clear();
+}
+
+function getToday(){
+  const today = new Date();
+  const yyyy = today.getFullYear();
+  let mm = today.getMonth() + 1; // Months start at 0!
+  let dd = today.getDate();
+
+  if (dd < 10) dd = '0' + dd;
+  if (mm < 10) mm = '0' + mm;
+
+  return yyyy + '-' + mm + '-' + dd;
+}
+
+function getPast(){
+  const today = new Date();
+  var myPastDate=new Date(today);
+    myPastDate.setDate(myPastDate.getDate() - 14);
+  const yyyy = myPastDate.getFullYear();
+  let mm = myPastDate.getMonth() + 1; // Months start at 0!
+  let dd = myPastDate.getDate();
+
+  if (dd < 10) dd = '0' + dd;
+  if (mm < 10) mm = '0' + mm;
+
+  return yyyy + '-' + mm + '-' + dd;
 }
