@@ -57,6 +57,7 @@ function history(){
                                         <td>${element.trans_code}</td>
                                         <td>${element.merchant_name}</td>
                                     </tr>`;
+                    dataTables2 =  "";
                 } else {                    
                     const trans_date = format_date(element.trans_date); 
                     dataTables += `<td>${trans_date}</td>
@@ -68,8 +69,8 @@ function history(){
                     dataTables2 = `<tr>
                                     <td>Total Order</td>
                                     <td></td>
+                                    <td style="text-align:center;">${sumOrder}</td>
                                     <td></td>
-                                    <td>${sumOrder}</td>
                                     </tr>`;
                 }
             });
@@ -81,7 +82,8 @@ function history(){
             document.getElementById("date_end").value = getToday();
             document.getElementById("date_start").value = getPast();
 
-        } else {
+        } 
+        if(user_type == "merchant" && localStorage.getItem("filter") !== null){
           filter_date();      
           let url_string = window.location;
           let url = new URL(url_string);    
@@ -123,8 +125,8 @@ function filter_date(){
                     dataFiltered2 = `<tr>
                     <td>Total Order</td>
                     <td></td>
+                                    <td style="text-align:center;">${sumOrder}</td>
                                     <td></td>
-                                    <td>${sumOrder}</td>
                                     </tr>`;
   });
   const tabelHead = document.querySelector("#thead_history");
