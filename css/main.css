@@ -24,6 +24,7 @@
     --gradient-light: linear-gradient(120deg, var(--color-secondary-light) 0%, var(--color-primary-light) 100%);
     --gradient-primary: linear-gradient(120deg, var(--color-primary-medium) 0%, var(--color-primary) 100%);
     --gradient-secondary: linear-gradient(120deg, var(--color-secondary-medium) 0%, var(--color-secondary) 100%);
+    --gradient-button: linear-gradient(120deg, #bdbceb 0%, #bdbce7 100%);
 }
 
 body {
@@ -544,7 +545,7 @@ fieldset button {
     margin: 16px auto 0;
     transform: scale(.8);
     display: block;
-    background: var(--color-primary-light);
+    background: var(--gradient-button);
     color: var(--color-primary);
 }
 
@@ -598,6 +599,7 @@ th {
     font-size: 11px;
     padding: 12px 8px;
     text-align: left;
+    text-transform: uppercase;
 }
 
 td {
