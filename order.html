@@ -11,8 +11,8 @@
     <title>Pesanan</title>
 </head>
 
-<body onload="checkSession(); history_merchant()">
-
+<body onload="checkSession(); order_merchant()">
+    <img src="img/cheyron-back.svg" alt="Back" role="button" class="back-button" onclick="location.href = document.referrer; return false;"/>
     <h2>Pesanan</h2>
     <section class="profile">
         <div>
@@ -21,14 +21,14 @@
         </div>
     </section>
 
-    <section class="no-data" id="no_data">
+    <section class="no-data" id="no_data" style="display:none;">
         Tidak Ada Data
     </section> 
-    <h4 id="order_info">
+    <h4 id="order_info" style="display:none;">
         <span id="date_order"></span>
         <span id="total_order"></span>
     </h4>
-    <table id="table_order">
+    <table id="table_order" style="display:none;">
         <thead>
             <tr>
                 <th>No</th>
