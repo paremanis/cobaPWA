@@ -719,6 +719,21 @@ section+h4 {
     justify-content: space-between;
 }
 
+/* back button */
+
+.back-button {
+    width: 32px;
+    padding: 6px 16px;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 30;
+}
+
+.back-button:active {
+    transform: scale(.9);
+}
+
 /* Animation */
 
 @keyframes fade-in {
