@@ -218,7 +218,7 @@ function order_merchant(){
             const tabelBody = document.querySelector("#tbody_order");
             tabelBody.innerHTML = dataTables;
             document.getElementById("order_info").style.display = "block";
-            document.getElementById("table_order").style.display = "block";
+            document.getElementById("table_order").style.display = "table";
             document.getElementById("date_order").innerHTML = data.trans_date;
             document.getElementById("total_order").innerHTML = "TOTAL: " + data.total;
         }
