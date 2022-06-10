@@ -135,7 +135,8 @@ function doLogout(){
       })
       .then((data) => {            
         sessionStorage.clear(); 
-        localStorage.clear();
+        localStorage.removeItem("date_order");  
+        localStorage.removeItem("filter");  
         window.open("/", "_self");
       })
       .catch(function(error) {
@@ -143,6 +144,7 @@ function doLogout(){
       });
 }
 
-function clearLocalTransDate(date){
-    localStorage.clear();
+function clearLocalTransDate(){ 
+    localStorage.removeItem("date_order");  
+    localStorage.removeItem("filter");   
 }

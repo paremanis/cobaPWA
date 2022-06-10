@@ -172,13 +172,13 @@ function filter_date(){
 }
 
 function order_merchant(){
-    if (localStorage.getItem("date") === null) {
+    if (localStorage.getItem("date_order") === null) {
         var data = JSON.stringify({
             'request_type' : 'history_merchant_daily',
             'token' : sessionStorage.getItem('AuthenticationState'),             
         });
     } else {        
-        var lclStrgDate = localStorage.getItem("date");
+        var lclStrgDate = localStorage.getItem("date_order");
         var data = JSON.stringify({
             'request_type' : 'history_merchant_daily',
             'token' : sessionStorage.getItem('AuthenticationState'), 
@@ -271,7 +271,7 @@ function format_date(d){
 }
 
 function setLocalTransDate(date){
-    window.localStorage.setItem('date',date);
+    window.localStorage.setItem('date_order',date);
     window.open("/order.html", "_self");
 }
 
