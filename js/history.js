@@ -1,12 +1,13 @@
 var fetchData = '';
 var dataTables = '';
+var tbodyUser = '';
 var table_head = '';
-var filteredHead = '';
+var tbodyMerchant = '';
+var tbodysum = '';
 var dataFiltered = '';
 function history(){
     const user_type = sessionStorage.getItem('user_type');
     if(user_type == "user"){
-        var request_type = "history";
         table_head = `<tr>
                             <th>No</th>
                             <th width="20%">Tanggal</th>
@@ -14,9 +15,9 @@ function history(){
                             <th width="50%">Nama</th>
                           </tr>`;        
         document.getElementById("filter_history").style.display = "none";
+        history_user();
     }
     else {        
-        var request_type = "history_merchant";
         table_head = `<tr>
                             <th>No</th>
                             <th>Tanggal</th>
@@ -24,78 +25,112 @@ function history(){
                             <th></th>
                           </tr>`;
         document.getElementById("nrk").style.display = "none";
-    }
-    var data = JSON.stringify({
-        'request_type' : request_type,
-        'token' : sessionStorage.getItem('AuthenticationState'),
-    });
-    const url = "https://haris.globalprestasi.sch.id/api/vm.php";
-    fetch(url, {
-        method : "POST",
-        headers : {
-            'Accept' : 'application/JSON',
-        },
-        body : data,
-    })
-    .then((response) => {
-        return response.json();
-      })
-      .then((data) => {      
-        const data_history = data.data;
-        let sumOrder = 0;
-        fetchData = data_history;
-        if (data_history.length === 0) {            
-            document.getElementById("table_history").style.display = "none";
-        } else if(localStorage.getItem("filter") === null){
-            let i = 1;
-            data_history.forEach((element) => { 
-              sumOrder += parseInt(element.jumlah);              
-                dataTables += `<tr> 
-                                <td>${i++}</td>`;
-                if(user_type == "user"){
-                    dataTables += `<td>${element.trans_date}</td>
-                                        <td>${element.trans_code}</td>
-                                        <td>${element.merchant_name}</td>
-                                    </tr>`;
-                    dataTables2 =  "";
-                } else {                    
-                    const trans_date = format_date(element.trans_date); 
-                    dataTables += `<td>${trans_date}</td>
-                                    <td style="text-align:center;">${element.jumlah}</td>
-                                    <td>
-                                    <input type="button" onclick='setLocalTransDate("`+element.trans_date+`")' value="Detail"/>
-                                    </td>
-                                    </tr>`;
-                    dataTables2 = `<tr>
-                                    <td>Total Order</td>
-                                    <td></td>
-                                    <td style="text-align:center;">${sumOrder}</td>
-                                    <td></td>
-                                    </tr>`;
-                }
-            });
-            const tabelHead = document.querySelector("#thead_history");
-            tabelHead.innerHTML = table_head;
-            const tabelBody = document.querySelector("#tbody_history");
-            tabelBody.innerHTML = dataTables + dataTables2;            
-            document.getElementById("no_data").style.display = "none";
-            document.getElementById("date_end").value = getToday();
-            document.getElementById("date_start").value = getPast();
+        history_merchant();
+    } 
+}
 
-        } 
-        if(user_type == "merchant" && localStorage.getItem("filter") !== null){
-          filter_date();      
-          let url_string = window.location;
-          let url = new URL(url_string);    
-          let start = url.searchParams.get("date_start");
-          let end = url.searchParams.get("date_end");
-          document.getElementById("date_end").value = end;
-          document.getElementById("date_start").value = start;
-        }         
-      })
-      .catch(function(error) { 
-        console.log(error);
-      });  
+function history_user(){
+  var data = JSON.stringify({
+    'request_type' : 'history',
+    'token' : sessionStorage.getItem('AuthenticationState'),
+  });
+  var data = JSON.stringify({
+    'request_type' : 'history',
+    'token' : sessionStorage.getItem('AuthenticationState'),
+  });
+  const url = "https://haris.globalprestasi.sch.id/api/vm.php";
+  fetch(url, {
+    method : "POST",
+    headers : {
+        'Accept' : 'application/JSON',
+    },
+    body : data,
+  })
+  .then((response)=> {
+    return response.json();
+  })
+  .then((data)=> {
+    const historyUser = data.data;
+    if (historyUser.length === 0) {            
+      document.getElementById("table_history").style.display = "none";
+    } else {
+      let i = 1;
+      historyUser.forEach((element) => {              
+          tbodyUser += `<tr> 
+                          <td>${i++}</td>
+                          <td>${element.trans_date}</td>
+                          <td>${element.trans_code}</td>
+                          <td>${element.merchant_name}</td>
+                        </tr>`;
+          const tabelHead = document.querySelector("#thead_history");
+          tabelHead.innerHTML = table_head;
+          const tabelBody = document.querySelector("#tbody_history");
+          tabelBody.innerHTML = tbodyUser;            
+          document.getElementById("no_data").style.display = "none";
+      });
+    }
+  })
+}
+
+function history_merchant(){
+  var data = JSON.stringify({
+      'request_type' : 'history_merchant',
+      'token' : sessionStorage.getItem('AuthenticationState'),
+  });
+  const url = "https://haris.globalprestasi.sch.id/api/vm.php";
+  fetch(url, {
+    method : "POST",
+    headers : {
+        'Accept' : 'application/JSON',
+    },
+    body : data,
+  })
+  .then((response)=> {
+    return response.json();
+  })
+  .then((data)=> {
+    const historyMerchant = data.data;
+    let sumOrder = 0;
+    fetchData = historyMerchant;
+    if (historyMerchant.length === 0) {            
+      document.getElementById("table_history").style.display = "none";
+    } else if(localStorage.getItem("filter") === null){
+      let i = 1;
+      historyMerchant.forEach((element) => {        
+        const trans_date = format_date(element.trans_date); 
+        sumOrder += parseInt(element.jumlah);
+        tbodyMerchant += `<tr> 
+                          <td>${i++}</td>
+                          <td>${trans_date}</td>
+                          <td style="text-align:center;">${element.jumlah}</td>
+                          <td>
+                          <input type="button" onclick='setLocalTransDate("`+element.trans_date+`")' value="Detail"/>
+                          </td>
+                          </tr>`;
+        tbodysum = `<tr>
+                    <td>Total Order</td>
+                    <td></td>
+                    <td style="text-align:center;">${sumOrder}</td>
+                    <td></td>
+                    </tr>`;
+      });
+      const tabelHead = document.querySelector("#thead_history");
+      tabelHead.innerHTML = table_head;
+      const tabelBody = document.querySelector("#tbody_history");
+      tabelBody.innerHTML = tbodyMerchant + tbodysum;            
+      document.getElementById("no_data").style.display = "none";
+      document.getElementById("date_end").value = getToday();
+      document.getElementById("date_start").value = getPast();
+    } else {
+      filter_date();      
+      let url_string = window.location;
+      let url = new URL(url_string);    
+      let start = url.searchParams.get("date_start");
+      let end = url.searchParams.get("date_end");
+      document.getElementById("date_end").value = end;
+      document.getElementById("date_start").value = start;
+    }
+  })
 }
 
 function filter_date(){
@@ -115,28 +150,28 @@ function filter_date(){
     const trans_date = format_date(element.trans_date); 
                     sumOrder += parseInt(element.jumlah);
                     dataFiltered += `<tr>
-                    <td>${i++}</td>
-                    <td>${trans_date}</td>
-                                    <td style="text-align:center;">${element.jumlah}</td>
-                                    <td>
-                                    <input type="button" onclick='setLocalTransDate("`+element.trans_date+`")' value="Detail"/>
-                                    </td>
+                                      <td>${i++}</td>
+                                      <td>${trans_date}</td>
+                                      <td style="text-align:center;">${element.jumlah}</td>
+                                      <td>
+                                      <input type="button" onclick='setLocalTransDate("`+element.trans_date+`")' value="Detail"/>
+                                      </td>
                                     </tr>`;
                     dataFiltered2 = `<tr>
-                    <td>Total Order</td>
-                    <td></td>
-                                    <td style="text-align:center;">${sumOrder}</td>
-                                    <td></td>
+                                      <td>Total Order</td>
+                                      <td></td>
+                                      <td style="text-align:center;">${sumOrder}</td>
+                                      <td></td>
                                     </tr>`;
-  });
-  const tabelHead = document.querySelector("#thead_history");
-  tabelHead.innerHTML = table_head;
-  const tabelBody = document.querySelector("#tbody_history");
-  tabelBody.innerHTML = dataFiltered + dataFiltered2;
-  document.getElementById("no_data").style.display = "none";  
+    const tabelHead = document.querySelector("#thead_history");
+    tabelHead.innerHTML = table_head;
+    const tabelBody = document.querySelector("#tbody_history");
+    tabelBody.innerHTML = dataFiltered + dataFiltered2;
+    document.getElementById("no_data").style.display = "none";
+  })  
 }
 
-function history_merchant(){
+function order_merchant(){
     if (localStorage.getItem("date") === null) {
         var data = JSON.stringify({
             'request_type' : 'history_merchant_daily',
@@ -167,9 +202,7 @@ function history_merchant(){
       .then((data) => {
         const data_order = data.data;
         if (data_order.length === 0) {            
-            document.getElementById("table_order").style.display = "none";
-            document.getElementById("order_info").style.display = "none";
-            document.getElementById("total_order").style.display = "none";
+          document.getElementById("no_data").style.display = "block";
         } else {   
             let i = 1;         
             const dataTables = data_order.map(function(value){
@@ -184,10 +217,10 @@ function history_merchant(){
             }).join('');
             const tabelBody = document.querySelector("#tbody_order");
             tabelBody.innerHTML = dataTables;
-            document.getElementById("no_data").style.display = "none";
+            document.getElementById("order_info").style.display = "block";
+            document.getElementById("table_order").style.display = "block";
             document.getElementById("date_order").innerHTML = data.trans_date;
             document.getElementById("total_order").innerHTML = "TOTAL: " + data.total;
-            console.log(data);
         }
       })
       .catch(function(error) { 
@@ -240,10 +273,6 @@ function format_date(d){
 function setLocalTransDate(date){
     window.localStorage.setItem('date',date);
     window.open("/order.html", "_self");
-}
-
-function clearLocalTransDate(date){
-    localStorage.clear();
 }
 
 function getToday(){

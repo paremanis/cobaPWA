@@ -135,9 +135,14 @@ function doLogout(){
       })
       .then((data) => {            
         sessionStorage.clear(); 
+        localStorage.clear();
         window.open("/", "_self");
       })
       .catch(function(error) {
         console.log(error);
       });
+}
+
+function clearLocalTransDate(date){
+    localStorage.clear();
 }
