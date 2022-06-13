@@ -35,9 +35,14 @@ body {
     text-align: center;
 }
 
-body>header, body>main {
+body>header {
     opacity: 0;
-    animation: fade-in .3s ease-in forwards;
+    animation: fade-in .2s ease-out forwards;
+}
+
+body>main {
+    opacity: 0;
+    animation: fade-in .2s .1s ease-out forwards;
 }
 
 /* footer,
@@ -57,7 +62,7 @@ h1 {
     margin: 0 0 8px;
 }
 
-body>h2, header>h2 {
+header>h2 {
     position: fixed;
     margin: 0;
     background: #fff;
@@ -247,6 +252,10 @@ footer a:focus span {
 
 footer a:focus span {
     animation: blink .8s .3s infinite both;
+}
+
+footer a:focus span:after {
+    content: "...";
 }
 
 footer a svg path {
