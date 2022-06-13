@@ -12,8 +12,12 @@
 </head>
 
 <body onload="checkSession(); order_merchant()">
-    <img src="img/chevron-back.svg" alt="Back" role="button" class="back-button" onclick="location.href = document.referrer; return false;"/>
-    <h2>Pesanan</h2>
+    <header>
+        <h2>Pesanan</h2>
+    </header>
+    <main>
+    <img id="back-button" src="img/chevron-back.svg" alt="Back" role="button" class="back-button" onclick="location.href = document.referrer; return false;" style="display:none;"/>
+    
     <section class="profile">
         <div>
             <h4 id="nama"></h4>
@@ -41,6 +45,7 @@
             
         </tbody>
     </table>
+    </main>
 
     <footer id="menu_footer">
 

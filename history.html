@@ -12,42 +12,45 @@
 </head>
 
 <body onload="checkSession(); history()">
+    <header>
+        <h2>Riwayat</h2>
+    </header>
 
-    <h2>Riwayat</h2>
-    <section class="profile">
-        <div>
-            <h4 id="nama"></h4>
-            <h5 id="nrk"></h5>
-        </div>
-    </section>
-
-    <form id="filter_history">
-        <fieldset>
-            <legend>Pencarian</legend>
+    <main>
+        <section class="profile">
             <div>
-                <label for="date_start">Tanggal Awal</label>
-                <input type="date" id="date_start" name="date_start" required>
-                <!-- <label for="trans_code">Kode Transaksi</label>
-                <input type="text" id="trans_code" name="trans_code"> -->
-                <label for="date_end">Tanggal Akhir</label>
-                <input type="date" id="date_end" name="date_end" required>
+                <h4 id="nama"></h4>
+                <h5 id="nrk"></h5>
             </div>
-            <button onclick="filter_date()">Cari</button>
-        </fieldset>
-    </form>
-
-    <section class="no-data" id="no_data">
-        Tidak Ada Data
-    </section> 
-    <table id="table_history">
-        <thead id="thead_history">
-
-        </thead>
-        <tbody id="tbody_history">
-            
-        </tbody>
-    </table>
-
+        </section>
+    
+        <form id="filter_history">
+            <fieldset>
+                <legend>Pencarian</legend>
+                <div>
+                    <label for="date_start">Tanggal Awal</label>
+                    <input type="date" id="date_start" name="date_start" required>
+                    <!-- <label for="trans_code">Kode Transaksi</label>
+                    <input type="text" id="trans_code" name="trans_code"> -->
+                    <label for="date_end">Tanggal Akhir</label>
+                    <input type="date" id="date_end" name="date_end" required>
+                </div>
+                <button onclick="filter_date()">Cari</button>
+            </fieldset>
+        </form>
+    
+        <section class="no-data" id="no_data">
+            Tidak Ada Data
+        </section> 
+        <table id="table_history">
+            <thead id="thead_history">
+    
+            </thead>
+            <tbody id="tbody_history">
+                
+            </tbody>
+        </table>
+    </main>
     <footer id="menu_footer">
 
     </footer>

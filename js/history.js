@@ -99,12 +99,12 @@ function history_merchant(){
       historyMerchant.forEach((element) => {        
         const trans_date = format_date(element.trans_date); 
         sumOrder += parseInt(element.jumlah);
-        tbodyMerchant += `<tr> 
+        tbodyMerchant += `<tr onclick='setLocalTransDate("`+element.trans_date+`")'> 
                           <td>${i++}</td>
                           <td>${trans_date}</td>
                           <td style="text-align:center;">${element.jumlah}</td>
                           <td>
-                          <input type="button" onclick='setLocalTransDate("`+element.trans_date+`")' value="Detail"/>
+                          <div class="arrow"><span>Detail</span><img src="img/chevron-back.svg" class="detail"></div>
                           </td>
                           </tr>`;
         tbodysum = `<tr>
@@ -149,12 +149,12 @@ function filter_date(){
   .forEach((element)=> {
     const trans_date = format_date(element.trans_date); 
                     sumOrder += parseInt(element.jumlah);
-                    dataFiltered += `<tr>
+                    dataFiltered += `<tr onclick='setLocalTransDate("`+element.trans_date+`")'>
                                       <td>${i++}</td>
                                       <td>${trans_date}</td>
                                       <td style="text-align:center;">${element.jumlah}</td>
                                       <td>
-                                      <input type="button" onclick='setLocalTransDate("`+element.trans_date+`")' value="Detail"/>
+                                      <div class="arrow"><span>Detail</span><img src="img/chevron-back.svg" class="detail"></div>
                                       </td>
                                     </tr>`;
                     dataFiltered2 = `<tr>
@@ -184,6 +184,7 @@ function order_merchant(){
             'token' : sessionStorage.getItem('AuthenticationState'), 
             'date' : lclStrgDate        
         });
+        document.getElementById("back-button").style.display = "block";
     }
     
     console.log(data);

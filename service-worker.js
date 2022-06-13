@@ -21,6 +21,7 @@ self.addEventListener('install', event => {
       return cache.addAll(filesToCache);
     })
   );
+  self.skipWaiting();
 });
 
 //cached dulu baru check network
