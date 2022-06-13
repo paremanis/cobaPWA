@@ -408,6 +408,7 @@ div#qr-reader__scan_region img {
     width: 360px !important;
     max-width: calc(100vw - 40px);
     height: 50vh;
+    opacity: 1!important;
 }
 
 #qr-reader__dashboard {
@@ -590,7 +591,7 @@ thead:before {
 
 thead {
     position: sticky;
-    top: 90px;
+    top: 94px;
     z-index: 20;
 }
 
