@@ -256,6 +256,7 @@ footer a:focus span {
 
 footer a:focus span:after {
     content: "...";
+    animation: fade-in .2s 1s ease-out forwards;
 }
 
 footer a svg path {
