@@ -24,8 +24,8 @@ function doLogin(){
       })
       .then((data) => {
             //set cookies
-            document.cookie = "uname=" + username.value;
-            document.cookie = "pass=" + password.value;
+            document.cookie = "uname=" + username.value +"; max-age=" + 365*24*60*60;
+            document.cookie = "pass=" + password.value +"; max-age=" + 365*24*60*60;
             // set session storage
             sessionStorage.setItem("AuthenticationState", data.token);
             sessionStorage.setItem("AuthenticationExpires", new Date().addHours(4));
