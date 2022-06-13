@@ -70,7 +70,7 @@ body>h2, header>h2 {
     align-items: center;
     justify-content: center;
     /* box-shadow: 0 0 6px rgba(0, 0, 120, .2); */
-    z-index: 20;
+    z-index: 100;
 }
 
 h1+p {
@@ -193,7 +193,7 @@ footer {
     width: 100vw;
     left: 0;
     bottom: 0;
-    z-index: 20;
+    z-index: 100;
     display: flex;
     align-items: center;
     padding: 0;
@@ -307,7 +307,7 @@ footer span {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    z-index: 20;
+    z-index: 100;
 }
 
 .profile div {
@@ -495,7 +495,7 @@ select:focus#qr-reader__camera_selection {
 
 form {
     position: relative;
-    z-index: 10;
+    z-index: 30;
 }
 
 /* History */
@@ -568,8 +568,9 @@ table {
     background: #fff;
 }
 
+table>thead>tr>th:nth-of-type(1),
 table>tbody>tr>td:nth-of-type(1) {
-    text-align: center;
+    text-align: center!important;
     max-width: 20px;
 }
 
@@ -736,7 +737,7 @@ section+h4 {
     padding: 4px var(--gap);
     font-weight: 500;
     color: #fff;
-    z-index: 20;
+    z-index: 100;
     display: flex;
     justify-content: space-between;
 }
