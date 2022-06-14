@@ -37,7 +37,9 @@ body {
     color: var(--color-text);
 }
 
-body>header {
+/* header */
+
+header {
     position: fixed;
     background: #fff;
     width: 100vw;
@@ -52,16 +54,33 @@ body>header {
     z-index: 100;
 }
 
-body>main {
+header:before {
+    content: '';
+    background: url('/img/logo.png');
+    width: 40px;
+    height: 40px;
+    display: block;
+    background-size: cover;
+    position: fixed;
+    left: 10px;
+    top: 2px;
+    z-index: 110;
+    mix-blend-mode: multiply;
+}
+
+header>h2 {
+    font-size: 18px;
+    margin: 0;
+}
+
+/* main */
+
+main {
     opacity: 0;
     animation: fade-in .2s .1s ease-out forwards;
 }
 
-/* footer,
-footer * {
-    opacity: 1;
-    animation: none;
-} */
+/* login */
 
 .logo {
     max-width: 180px;
@@ -70,18 +89,13 @@ footer * {
 }
 
 h1 {
-    font-size: 24px;
+    font-size: 22px;
     margin: 0 0 8px;
-}
-
-header>h2 {
-    font-size: 18px;
-    margin: 0;
 }
 
 h1+p {
     margin: 0 0 16px;
-    font-size: 15px;
+    font-size: 14px;
 }
 
 #alert {
@@ -113,6 +127,8 @@ h1+p {
     max-width: 240px;
     width: 100%;
 }
+
+/* form */
 
 input, button, .btn, select, #qr-reader__dashboard_section_swaplink {
     transition: .1s;
@@ -192,6 +208,8 @@ a.btn, #qr-reader__dashboard_section_swaplink {
     min-width: 120px;
     transform: scale(.8);
 }
+
+/* footer */
 
 footer {
     position: fixed;
@@ -819,11 +837,12 @@ tr:hover td .arrow>span::after {
 
 .haris {
     width: 80px;
-    margin: 32px auto 16px;
-    /* background: #488FCD; */
+    margin: 24px auto 16px;
     color: #fff;
     padding: 10px;
     border-radius: var(--border-radius);
+    opacity: 0;
+    animation: fade-in .3s .2s ease-out forwards;
 }
 
 .haris a {
@@ -838,7 +857,10 @@ tr:hover td .arrow>span::after {
 }
 
 .haris img {
-    max-width: 72px;
+    max-width: 54px;
+    background: #488FCD;
+    border-radius: 4px;
+    padding: 5px;
 }
 
 .login-form + .haris {
