@@ -158,8 +158,8 @@ function filter_date(){
                                       </td>
                                     </tr>`;
                     dataFiltered2 = `<tr>
-                                      <td>Total Order</td>
                                       <td></td>
+                                      <td>Total Order</td>
                                       <td style="text-align:center;">${sumOrder}</td>
                                       <td></td>
                                     </tr>`;
