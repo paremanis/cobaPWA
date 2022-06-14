@@ -107,7 +107,7 @@ function history_merchant(){
                           <div class="arrow"><span>Detail</span><img src="img/chevron-back.svg" class="detail"></div>
                           </td>
                           </tr>`;
-        tbodysum = `<tr>
+        tbodysum = `<tr class="total-order">
                     <td></td>
                     <td>Total Order</td>
                     <td style="text-align:center;">${sumOrder}</td>
@@ -157,7 +157,7 @@ function filter_date(){
                                       <div class="arrow"><span>Detail</span><img src="img/chevron-back.svg" class="detail"></div>
                                       </td>
                                     </tr>`;
-                    dataFiltered2 = `<tr>
+                    dataFiltered2 = `<tr class="total-order">
                                       <td></td>
                                       <td>Total Order</td>
                                       <td style="text-align:center;">${sumOrder}</td>
