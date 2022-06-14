@@ -664,7 +664,7 @@ td input[type="button"]:active {
     box-shadow: var(--box-shadow-inset);
 }
 
-#table_history>#tbody_history>tr:last-child { 
+.total-order { 
     font-weight: 500;
     text-transform: uppercase;
     background: var(--color-secondary);
