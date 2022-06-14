@@ -837,7 +837,7 @@ tr:hover td .arrow>span::after {
 
 .haris {
     width: 80px;
-    margin: 24px auto 16px;
+    margin: 36px auto 24px;
     color: #fff;
     padding: 10px;
     border-radius: var(--border-radius);
@@ -868,6 +868,17 @@ tr:hover td .arrow>span::after {
     bottom: 0;
     left: 50%;
     transform: translateX(-50%);
+}
+
+main .haris span {
+    opacity: .7;
+}
+
+main .haris img {
+    filter: invert(1) hue-rotate(180deg) brightness(5) saturate(0);
+    background: transparent;
+    padding: 0;
+    opacity: .3;
 }
 
 /* Animation */
