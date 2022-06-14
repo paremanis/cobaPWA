@@ -864,7 +864,10 @@ tr:hover td .arrow>span::after {
 }
 
 .login-form + .haris {
-    margin-bottom: -60px;
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 /* Animation */
