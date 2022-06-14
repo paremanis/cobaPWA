@@ -35,7 +35,7 @@ function doLogin(){
             sessionStorage.setItem("user_type", data.user_type);
 
             if (data.user_type == "user"){
-                window.open('/scanner.html', '_self');  
+                window.open('/history.html', '_self');  
             } else {
                 window.open('/order.html', '_self'); 
             }
