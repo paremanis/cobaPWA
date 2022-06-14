@@ -108,8 +108,8 @@ function history_merchant(){
                           </td>
                           </tr>`;
         tbodysum = `<tr>
-                    <td>Total Order</td>
                     <td></td>
+                    <td>Total Order</td>
                     <td style="text-align:center;">${sumOrder}</td>
                     <td></td>
                     </tr>`;
