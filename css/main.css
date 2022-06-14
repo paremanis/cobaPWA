@@ -570,6 +570,7 @@ fieldset button {
 .no-data {
     color: var(--color-secondary);
     margin: 40px 0;
+    animation: blink 0.6s 2 both;
 }
 
 table {
