@@ -870,7 +870,7 @@ tr:hover td .arrow>span::after {
     transform: translateX(-50%);
 }
 
-main .haris span {
+main .haris small {
     opacity: .7;
 }
 
