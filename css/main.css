@@ -15,6 +15,7 @@
     --color-success: #2dd36f;
     --color-soft: #f5f7fb;
     --color-bright: #FFEB3B;
+    --color-text: #1d1d1f;
     --border-radius: 12px;
     --border-radius-button: 30px;
     --border-radius-input: 4px;
@@ -33,10 +34,19 @@ body {
     padding: 70px 8px 60px;
     font-family: var(--font);
     text-align: center;
+    color: var(--color-text);
 }
 
 body>header {
-    position: relative;
+    position: fixed;
+    background: #fff;
+    width: 100vw;
+    left: 0;
+    top: 0;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     opacity: 0;
     animation: fade-in .2s ease-out forwards;
     z-index: 100;
@@ -65,19 +75,8 @@ h1 {
 }
 
 header>h2 {
-    position: fixed;
-    margin: 0;
-    background: #fff;
-    width: 100vw;
     font-size: 18px;
-    left: 0;
-    top: 0;
-    height: 44px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    /* box-shadow: 0 0 6px rgba(0, 0, 120, .2); */
-    z-index: 100;
+    margin: 0;
 }
 
 h1+p {
@@ -814,6 +813,36 @@ tr td .arrow>span::after {
 
 tr:hover td .arrow>span::after {
     opacity: 1;
+}
+
+/* HaRIS */
+
+.haris {
+    width: 80px;
+    margin: 32px auto 16px;
+    /* background: #488FCD; */
+    color: #fff;
+    padding: 10px;
+    border-radius: var(--border-radius);
+}
+
+.haris a {
+    text-decoration: none;
+    color: var(--color-text);
+}
+
+.haris small {
+    display: block;
+    font-size: 9px;
+    margin: 3px 0;
+}
+
+.haris img {
+    max-width: 72px;
+}
+
+.login-form + .haris {
+    margin-bottom: -60px;
 }
 
 /* Animation */
