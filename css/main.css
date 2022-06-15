@@ -692,6 +692,11 @@ td input[type="button"]:active {
     color: #fff;
 }
 
+.total-order:hover { 
+    background: var(--color-secondary-medium);
+    color: #fff;
+}
+
 /* Notification */
 
 .notification {
