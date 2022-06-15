@@ -858,9 +858,9 @@ tr:hover td .arrow>span::after {
 
 .haris img {
     max-width: 54px;
-    background: #488FCD;
+    /* background: #488FCD; */
     border-radius: 4px;
-    padding: 5px;
+    /* padding: 5px; */
 }
 
 .login-form + .haris {
@@ -870,7 +870,7 @@ tr:hover td .arrow>span::after {
     transform: translateX(-50%);
 }
 
-main .haris small {
+/* main .haris small {
     opacity: .7;
 }
 
@@ -879,7 +879,7 @@ main .haris img {
     background: transparent;
     padding: 0;
     opacity: .3;
-}
+} */
 
 /* Animation */
 
