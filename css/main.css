@@ -692,9 +692,8 @@ td input[type="button"]:active {
     color: #fff;
 }
 
-.total-order:hover { 
+.total-order:hover td { 
     background: var(--color-secondary-medium);
-    color: #fff;
 }
 
 /* Notification */
