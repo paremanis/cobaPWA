@@ -586,8 +586,14 @@ fieldset button {
 
 .no-data {
     color: var(--color-secondary);
-    margin: 40px 0;
-    animation: blink 0.6s 2 both;
+    margin: 16px 0;
+}
+
+.no-data img {
+    margin: 16px auto 0;
+    width: 360px !important;
+    max-width: calc(100vw - 40px);
+    height: 50vh;
 }
 
 table {
@@ -595,8 +601,6 @@ table {
     width: 100%;
     border-spacing: 0;
     border-collapse: collapse;
-    /* box-shadow: var(--box-shadow-high); */
-    /* border-radius: var(--border-radius); */
     background: #fff;
     user-select: none;
 }
