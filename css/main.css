@@ -935,3 +935,11 @@ tr:hover td .arrow>span::after {
         box-shadow: var(--box-shadow-high);
     }
 }
+
+/* media queries */
+
+@media screen and (max-height: 600px) {
+    .logo {
+        max-width: 150px;
+    }
+}
