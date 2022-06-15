@@ -19,7 +19,7 @@
 		<stop offset=".531" style="stop-color:#000"/>
 		</linearGradient>
 		<path opacity=".25" fill="url(#SVGID_1_)" d="M249.9 432.7h-19.6C103.1 432.6 0 434.2 0 436.1s103.1 3.5 230.2 3.5c41.8 0 97.4 0 109-2.9-21.7-1.9-61-2.3-89.3-4z"/>
-		<path opacity=".1" fill="#6770A7" d="M193.1 154.5h-2.7v-28.8h27.4v2.7h-24.7v26.1zm128.5 0h-2.7v-26.1h-24.7v-2.7h27.4v28.8zM217.8 257h-27.4v-26.1h2.7v23.4h24.7v2.7zm103.8 0h-27.4v-2.7h24.7v-23.4h2.7V257z"/>
+		<path fill="#2C2976" d="M193.1 154.5h-2.7v-28.8h27.4v2.7h-24.7v26.1zm128.5 0h-2.7v-26.1h-24.7v-2.7h27.4v28.8zM217.8 257h-27.4v-26.1h2.7v23.4h24.7v2.7zm103.8 0h-27.4v-2.7h24.7v-23.4h2.7V257z"/>
 		<path id="redline" fill="red" d="M190.4 125.7h131.2v2.7H190.4z"/>
 		<g id="haris">
 			<g fill="#fcd01e">
@@ -202,7 +202,10 @@
 				transform: translateY(0) scaleX(0);
 				animation-timing-function: ease-in;
 			}
-			10% {
+			15% {
+				transform: translateY(0) scaleX(1);
+			}
+			20% {
 				transform: translateY(0) scaleX(1);
 				animation-timing-function: ease-in-out;
 			}
@@ -211,6 +214,9 @@
 				animation-timing-function: ease-out;
 			}
 			80% {
+				transform: translateY(128.64px) scaleX(1);
+			}
+			95% {
 				transform: translateY(128.64px) scaleX(0);
 			}
 			100% {
