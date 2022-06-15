@@ -1,5 +1,5 @@
-const username = document.getElementById("username");
-const password = document.getElementById("password");
+var username = document.getElementById("username");
+var password = document.getElementById("password");
 
 function doLogin(){
     var data = JSON.stringify({
@@ -23,9 +23,9 @@ function doLogin(){
         return response.json();
       })
       .then((data) => {
-            //set cookies
-            document.cookie = "uname=" + username.value +"; max-age=" + 365*24*60*60;
-            document.cookie = "pass=" + password.value +"; max-age=" + 365*24*60*60;
+            //set cookies + encode with btoa
+            document.cookie = "uname=" + window.btoa(username.value) +"; max-age=" + 365*24*60*60 + ';secure';
+            document.cookie = "pass=" + window.btoa(password.value) +"; max-age=" + 365*24*60*60 + ';secure';
             // set session storage
             sessionStorage.setItem("AuthenticationState", data.token);
             sessionStorage.setItem("AuthenticationExpires", new Date().addHours(4));
@@ -62,8 +62,9 @@ function checkCookie() {
         .find(row => row.startsWith('pass='))
         .split('=')[1];
         
-        username.value = cUsername;
-        password.value = cPassword;
+        //get cookies + decode with btoa
+        username.value = window.atob(cUsername);
+        password.value = window.atob(cPassword);
       }
 }
 
