@@ -848,6 +848,7 @@ tr:hover td .arrow>span::after {
 .haris a {
     text-decoration: none;
     color: var(--color-text);
+    pointer-events: none;
 }
 
 .haris small {
@@ -858,9 +859,7 @@ tr:hover td .arrow>span::after {
 
 .haris img {
     max-width: 54px;
-    /* background: #488FCD; */
     border-radius: 4px;
-    /* padding: 5px; */
 }
 
 .login-form + .haris {
@@ -869,17 +868,6 @@ tr:hover td .arrow>span::after {
     left: 50%;
     transform: translateX(-50%);
 }
-
-/* main .haris small {
-    opacity: .7;
-}
-
-main .haris img {
-    filter: invert(1) hue-rotate(180deg) brightness(5) saturate(0);
-    background: transparent;
-    padding: 0;
-    opacity: .3;
-} */
 
 /* Animation */
 
