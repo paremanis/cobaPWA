@@ -590,10 +590,10 @@ fieldset button {
 }
 
 .no-data img {
-    margin: 16px auto 0;
+    margin: 40px auto 0;
     width: 360px !important;
     max-width: calc(100vw - 40px);
-    height: 50vh;
+    height: 35vh;
 }
 
 table {
