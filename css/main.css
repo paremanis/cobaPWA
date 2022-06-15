@@ -846,7 +846,7 @@ tr:hover td .arrow>span::after {
     padding: 10px;
     border-radius: var(--border-radius);
     opacity: 0;
-    animation: fade-in .3s .2s ease-out forwards;
+    animation: fade-in .3s .6s ease-out forwards;
 }
 
 .haris a {
