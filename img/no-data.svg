@@ -30,13 +30,15 @@
 	  <path opacity=".25" fill="url(#shadow)" d="M123.2 669.1h-8.6c-56.5 0-102.2 4-102.2 9s45.7 9 102.2 9c18.5 0 24.6-2.1 39.6-2.6-9.9-4.8-18.4-10.9-31-15.4z"/>
 	</g>
 	<g id="balloon">
-	  <path fill="#EC1D27" d="M476.5 102.1H156.8c-15.5 0-28.1-12.6-28.1-28.1V35.6c0-15.5 12.6-28.1 28.1-28.1h319.6c15.5 0 28.1 12.6 28.1 28.1V74c.1 15.5-12.5 28.1-28 28.1z"/>
-	  <text id="txt" text-anchor="middle" font-family="Rubik, Roboto, Helvetica, sans-serif">
-		<tspan y="67" x="320" font-weight="500" font-size="38px" fill="#fff">TIDAK ADA DATA</tspan>
-	  </text>
-	  <path fill="#EC1D27" d="M253.8 97 233 135.5l55.5-38.3z"/>
+		<path fill="#EC1D27" d="M415.9,102.1H96.2c-15.5,0-28.1-12.6-28.1-28.1V35.6c0-15.5,12.6-28.1,28.1-28.1h319.6 c15.5,0,28.1,12.6,28.1,28.1V74C444,89.5,431.4,102.1,415.9,102.1L415.9,102.1z"/>
+		<text id="txt" text-anchor="middle" font-family="Rubik, Roboto, Helvetica, sans-serif"><tspan y="67" x="259" font-weight="500" font-size="38px" fill="#fff">TIDAK ADA DATA</tspan></text>
+		<path fill="#EC1D27" d="M253.8,97L233,135.5l55.5-38.3L253.8,97z"/>
 	</g>
 	<style>
+		svg {
+			opacity: 0;
+			animation: fade .3s .5s forwards ease-in;
+		}
 		#head {
 			transform-origin: 35% 32%;
 			transform: rotate(-5deg);
@@ -47,7 +49,7 @@
 			animation: hand .3s alternate infinite ease-in-out;
 		}
 		#balloon {
-			animation: blink 0.6s 2 both;
+			animation: blink 0.6s 1s 2 both;
 		}
 		@keyframes head {
 			0% {
@@ -69,6 +71,14 @@
 			}
 			100% {
 				transform: rotate(-5deg);
+			}
+		}
+		@keyframes fade {
+			0% {
+				opacity: 0;
+			}
+			100% {
+				opacity: 1;
 			}
 		}
 		@keyframes blink {
