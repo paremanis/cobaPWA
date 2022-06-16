@@ -911,7 +911,7 @@ tr:hover td .arrow>span::after {
 
 .qrcode-merchant .applink {
     width: 100%;
-    margin: 16px 8px;
+    margin: 16px 8px 0;
     max-width: 144px;
     min-width: 144px;
 }
@@ -919,6 +919,10 @@ tr:hover td .arrow>span::after {
 .qrcode-merchant summary {
     font-size: 14px;
     color: var(--color-primary);
+}
+
+.qrcode-merchant details .applink+p {
+    font-size: 13px;
 }
 
 .qrcode-merchant + .haris {
