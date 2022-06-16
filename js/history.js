@@ -12,7 +12,7 @@ function history(){
                             <th>No</th>
                             <th width="20%">Tanggal</th>
                             <th width="20%">Kode</th>
-                            <th width="50%">Nama</th>
+                            <th width="50%">Tempat Makan</th>
                           </tr>`;        
         document.getElementById("filter_history").style.display = "none";
         history_user();
