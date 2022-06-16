@@ -37,7 +37,7 @@ function doLogin(){
             if (data.user_type == "user"){
                 window.open('/history.html', '_self');  
             } else {
-                window.open('/qrcode.html', '_self'); 
+                window.open('/order.html', '_self'); 
             }
       })
       .catch(function(error) {
