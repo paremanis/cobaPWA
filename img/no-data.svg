@@ -31,7 +31,7 @@
 	</g>
 	<g id="balloon">
 		<path fill="#EC1D27" d="M415.9,102.1H96.2c-15.5,0-28.1-12.6-28.1-28.1V35.6c0-15.5,12.6-28.1,28.1-28.1h319.6 c15.5,0,28.1,12.6,28.1,28.1V74C444,89.5,431.4,102.1,415.9,102.1L415.9,102.1z"/>
-		<text id="search" text-anchor="middle" font-family="Rubik, Roboto, Helvetica, sans-serif"><tspan y="67" x="259" font-weight="500" font-size="38px" fill="#fff">MENCARI DATA...</tspan></text>
+		<text id="search" text-anchor="middle" font-family="Rubik, Roboto, Helvetica, sans-serif"><tspan y="67" x="259" font-weight="500" font-size="38px" fill="#fff">. . .</tspan></text>
 		<text id="nodata" text-anchor="middle" font-family="Rubik, Roboto, Helvetica, sans-serif"><tspan y="67" x="259" font-weight="500" font-size="38px" fill="#fff">TIDAK ADA DATA</tspan></text>
 		<path fill="#EC1D27" d="M253.8,97L233,135.5l55.5-38.3L253.8,97z"/>
 	</g>
@@ -43,18 +43,18 @@
 		#head {
 			transform-origin: 35% 32%;
 			transform: rotate(-5deg);
-			animation: head 6s 2.5s forwards ease-in-out;
+			animation: head 5s 1s forwards ease-in-out;
 		}
 		#hand {
     		transform-origin: 56% 29%;
-			animation: hand .3s 6s alternate infinite ease-in-out;
+			animation: hand .3s 4s alternate infinite ease-in-out;
 		}
 		#balloon #search {
-			animation: blink 0.6s 1s 2 both, fade-out .3s 2.2s forwards;
+			animation: blink .6s 2 both, fade-out .3s 1.2s forwards;
 		}
 		#balloon #nodata {
 			opacity: 0;
-			animation: fade .3s 2.5s forwards;
+			animation: fade .6s 1.6s forwards;
 		}
 		@keyframes head {
 			0% {
