@@ -57,15 +57,17 @@ header {
 header:before {
     content: '';
     background: url('/img/logo.png');
-    width: 40px;
     height: 40px;
     display: block;
-    background-size: cover;
+    background-size: 40px;
     position: fixed;
-    left: 10px;
     top: 2px;
     z-index: 110;
     mix-blend-mode: multiply;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-position-x: 10px;
+    max-width: 500px;
 }
 
 header>h2 {
@@ -223,6 +225,8 @@ footer {
     padding: 0;
     box-shadow: 0 0 6px rgba(0, 0, 120, .2);
     border-top: 2px solid #fff;
+    display: flex;
+    justify-content: center;
 }
 
 footer a.btn {
@@ -243,6 +247,7 @@ footer a {
     margin: -2px 0 0;
     user-select: none;
     border-top: 2px solid transparent;
+    max-width: 160px;
 }
 
 footer a.active {
