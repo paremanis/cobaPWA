@@ -97,6 +97,7 @@ function checkSession(){
             } 
             else {
                 document.getElementById("page_scanner").style.display = "none";
+                document.getElementById("profile").style.display = "none";
             }
             
             if(window.location.pathname == "/scanner.html"){
@@ -108,6 +109,10 @@ function checkSession(){
             }
             else if(window.location.pathname == "/history.html"){
                 document.getElementById("page_history").classList.add("active");
+            }
+            else if(window.location.pathname == "/profile.html"){
+                document.getElementById("profile").classList.add("active");
+                document.getElementById("avatar").src = sessionStorage.getItem('avatar');
             }
             else if(window.location.pathname == "/order.html"){
                 document.getElementById("page_order").classList.add("active");
