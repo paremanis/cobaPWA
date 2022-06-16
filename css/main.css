@@ -778,7 +778,7 @@ td input[type="button"]:active {
 
 /* Order */
 
-section+h4 {
+#order_info {
     font-size: 12px;
     margin-bottom: -12px;
     position: sticky;
@@ -794,6 +794,13 @@ section+h4 {
     z-index: 100;
     display: flex;
     justify-content: space-between;
+}
+
+#order_info>div {
+    display: flex;
+    justify-content: space-between;
+    width: 480px;
+    margin: auto;
 }
 
 /* back button */
