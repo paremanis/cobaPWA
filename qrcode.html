@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="manifest" href="manifest.json">
+    <link rel="icon" type="image/png" href="icons/192.png">
+    <title>QR Code</title>
+</head>
+
+<body>
+<body onload="checkSession();">
+    <header>
+        <h2>QR Code</h2>
+    </header>
+    <main>
+
+        <section class="qrcode-merchant">
+
+            <h2 id="nama"></h2>
+
+            <div>
+                <img class="qrcode" src="https://haris.globalprestasi.sch.id/qr_gen.php?text=N2bnz0XSVErF2RRXi5L2GykSQHwzkh22">
+                <h3>SCAN ME</h3>
+            </div>
+
+
+            <p>Pindai melalui aplikasi:<br><strong>GPS Voucher Makan Siang</strong></p>
+
+            <details>
+                <summary>https://lv.globalprestasi.sch.id/</summary>
+                <img class="applink" src="/img/qrcode-app-link.png" alt="App QR Code">
+            </details>            
+
+        </section>
+        
+        <section class="haris">
+            <a href="https://pukado.com/haris.html" target="_blank">
+                <small>Powered by:</small>
+                <img src="img/logo-haris.svg" alt="HaRIS">
+            </a>
+        </section>
+        
+    </main>
+
+    <footer id="menu_footer">
+
+    </footer>
+
+
+    <!--register service worker -->
+    <script src="js/sw-declaration.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/history.js"></script>
+</body>
+
+</html>

@@ -352,7 +352,7 @@ footer span {
     max-width: 480px;
     margin: auto;
     grid-gap: 10px;
-    grid-template-columns: 1fr 120px;
+    grid-template-columns: 1fr 108px;
 }
 
 .profile legend {
@@ -595,7 +595,7 @@ fieldset button {
 }
 
 .no-data img {
-    margin: 40px auto 0;
+    margin: 30px auto 0;
     width: 360px !important;
     max-width: calc(100vw - 40px);
     height: 35vh;
@@ -853,6 +853,76 @@ tr td .arrow>span::after {
 
 tr:hover td .arrow>span::after {
     opacity: 1;
+}
+
+/* Merchant QR Code */
+
+.qrcode-merchant {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* height: calc(100vh - 240px); */
+}
+
+.qrcode-merchant div {
+    /* border: 3px solid var(--color-secondary); */
+    padding: 6px;
+    border-radius: var(--border-radius);
+    margin: auto;
+    background: var(--color-primary);
+    box-shadow: var(--box-shadow-high);
+    color: #fff;
+    margin: 0 0 30px;
+    width: 256px;
+    animation: swing-in-top-fwd 0.5s .1s cubic-bezier(0.175, 0.885, 0.320, 1.275) both;
+}
+
+.qrcode-merchant h2 {
+    font-size: 22px;
+    margin: -16px 0 16px;
+    line-height: 1;
+    font-weight: 500;
+    color: var(--color-primary);
+}
+
+.qrcode-merchant h3 {
+    font-size: 20px;
+    line-height: 1;
+    margin: 6px 0;
+}
+
+.qrcode-merchant p {
+    font-size: 15px;
+    margin: 3px 0;    
+    font-weight: 400;
+}
+
+.qrcode-merchant p strong {
+    color: var(--color-secondary);
+}
+
+.qrcode-merchant .qrcode {
+    width: 100%;
+    /* margin: 16px 8px; */
+    max-width: 250px;
+    min-width: 100%;
+    border-radius: 6px 6px 0 0;
+}
+
+.qrcode-merchant .applink {
+    width: 100%;
+    margin: 16px 8px;
+    max-width: 144px;
+    min-width: 144px;
+}
+
+.qrcode-merchant summary {
+    font-size: 14px;
+    color: var(--color-primary);
+}
+
+.qrcode-merchant + .haris {
+    margin-top: 16px;
 }
 
 /* HaRIS */
