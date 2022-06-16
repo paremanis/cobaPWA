@@ -37,7 +37,7 @@ function doLogin(){
             if (data.user_type == "user"){
                 window.open('/history.html', '_self');  
             } else {
-                window.open('/order.html', '_self'); 
+                window.open('/qrcode.html', '_self'); 
             }
       })
       .catch(function(error) {
@@ -92,6 +92,7 @@ function checkSession(){
 
             if(user_type == "user"){
                 document.getElementById("page_order").style.display = "none";
+                document.getElementById("qr_code").style.display = "none";
             } 
             else {
                 document.getElementById("page_scanner").style.display = "none";
@@ -99,6 +100,9 @@ function checkSession(){
             
             if(window.location.pathname == "/scanner.html"){
                 document.getElementById("page_scanner").classList.add("active");
+            }
+            else if(window.location.pathname == "/qrcode.html"){
+                document.getElementById("qr_code").classList.add("active");
             }
             else if(window.location.pathname == "/history.html"){
                 document.getElementById("page_history").classList.add("active");
