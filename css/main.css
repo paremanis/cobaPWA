@@ -592,6 +592,7 @@ fieldset button {
 .no-data {
     color: var(--color-secondary);
     margin: 16px 0;
+    display: none;
 }
 
 .no-data img {
@@ -854,6 +855,80 @@ tr td .arrow>span::after {
 tr:hover td .arrow>span::after {
     opacity: 1;
 }
+
+/* Profile Page */
+
+.profile-detail {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: -16px;
+}
+
+.profile-detail div {
+    padding: 3px;
+    border-radius: var(--border-radius);
+    margin: auto;
+    background: var(--color-primary);
+    box-shadow: var(--box-shadow-high);
+    color: #fff;
+    margin: 0 0 20px;
+    width: 256px;
+    animation: swing-in-top-fwd 0.5s .1s cubic-bezier(0.175, 0.885, 0.320, 1.275) both;
+}
+
+.profile-detail .profile-picture {
+    width: 100%;
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+    object-position: top center;
+    border-radius: 6px 6px 0 0;
+    margin-top: 3px;
+    background: var(--color-primary-medium);
+}
+
+.profile-detail h6 {
+    font-size: 18px;
+    margin: 12px 0 8px;
+    line-height: 1;
+    font-weight: 500;
+    color: var(--color-primary);
+    text-transform: uppercase;
+}
+
+.profile-detail h2 {
+    font-size: 20px;
+    line-height: 1;
+    font-weight: 500;
+    margin: 8px 0 8px;
+    color: #fff;
+}
+
+.profile-detail h5 {
+    font-size: 14px;
+    margin: 0 0 8px;
+    font-weight: 400;
+    color: #fff;
+}
+
+.profile-detail h6 {
+    font-size: 18px;
+    margin: 8px 0;
+    animation: fade .3s .3s forwards;
+}
+
+.profile-detail p {
+    font-size: 14px;
+    margin: 0 0 3px;
+    max-width: 250px;
+    font-weight: 500;
+}
+
+.profile-detail + .haris {
+    margin-top: 8px;
+}
+
 
 /* Merchant QR Code */
 
