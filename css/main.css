@@ -592,7 +592,6 @@ fieldset button {
 .no-data {
     color: var(--color-secondary);
     margin: 16px 0;
-    display: none;
 }
 
 .no-data img {
