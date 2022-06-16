@@ -816,6 +816,7 @@ section+h4 {
 .arrow {
     display: flex;
     justify-content: flex-end;
+    cursor: pointer;
 }
 
 .arrow>img {
