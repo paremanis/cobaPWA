@@ -32,6 +32,7 @@ function doLogin(){
             sessionStorage.setItem("name", data.user.name);
             sessionStorage.setItem("id_user", data.user.id);            
             sessionStorage.setItem("nrk", data.user.nrk);         
+            sessionStorage.setItem("avatar", data.user.avatar);
             sessionStorage.setItem("user_type", data.user_type);
 
             if (data.user_type == "user"){
@@ -103,6 +104,7 @@ function checkSession(){
             }
             else if(window.location.pathname == "/qrcode.html"){
                 document.getElementById("qr_code").classList.add("active");
+                document.getElementById("qr").src = sessionStorage.getItem('avatar');
             }
             else if(window.location.pathname == "/history.html"){
                 document.getElementById("page_history").classList.add("active");
