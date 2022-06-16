@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="manifest" href="manifest.json">
+    <link rel="icon" type="image/png" href="icons/192.png">
+    <title>Profile</title>
+</head>
+
+<body onload="checkSession();">
+    <header>
+        <h2>Profile</h2>
+    </header>
+    <main>
+
+        <section class="profile-detail">
+
+            <div>
+                
+                <img class="profile-picture" onerror="this.src='img/profile-blank.svg';this.onerror='';" src="img/profile-blank.svg">
+
+                <h2 id="nama"></h2>
+                <h5 id="nrk"></h5>
+            </div>
+
+            <h6>
+                <script type="text/javascript">
+                    var h=(new Date()).getHours();
+                    var m=(new Date()).getMinutes();
+                    var s=(new Date()).getSeconds();
+                    if (h >= 4 && h < 10) document.writeln("Selamat Pagi!");
+                    if (h >= 10 && h < 15) document.writeln("Selamat Siang!");
+                    if (h >= 15 && h < 18) document.writeln("Selamat Sore!");
+                    if (h >= 18 || h < 4) document.writeln("Selamat Malam!");
+                </script>
+            </h6>
+
+            <p class="primary">Scan QR Code di tempat makan pilihan anda untuk menukarkan Voucher</p>
+
+            <!-- <p class="primary" hidden>Hari ini anda belum menggunakan voucher makan siang</p>
+            <p class="secondary" hidden>Hari ini anda sudah menggunakan voucher makan siang pukul 12:09 di Warung Padang</p> -->
+
+        </section>
+        
+        <section class="haris">
+            <a href="https://pukado.com/haris.html" target="_blank">
+                <small>Powered by:</small>
+                <img src="img/logo-haris.svg" alt="HaRIS">
+            </a>
+        </section>
+        
+    </main>
+    <footer id="menu_footer">
+
+    </footer>
+
+
+    <!--register service worker -->
+    <script src="js/sw-declaration.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/history.js"></script>
+</body>
+
+</html>
