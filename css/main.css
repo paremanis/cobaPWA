@@ -877,6 +877,7 @@ tr:hover td .arrow>span::after {
 
 .profile-detail .profile-picture {
     width: 100%;
+    opacity: 0;
     width: 250px;
     height: 250px;
     object-fit: cover;
@@ -884,6 +885,7 @@ tr:hover td .arrow>span::after {
     border-radius: 6px 6px 0 0;
     margin-top: 3px;
     background: var(--gradient-secondary);
+    animation: fade-in .3s .2s forwards;
 }
 
 .profile-detail h6 {
