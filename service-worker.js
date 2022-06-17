@@ -3,12 +3,23 @@ const filesToCache = [
   'index.html',
   'scanner.html',
   'history.html',
+  'footer.html',
+  'notification.html',
+  'order.html',
+  'profile.html',
+  'qrcode.html',
   'img/logo.png',
+  'img/logo-haris.svg',
+  'img/no-data.svg',
+  'img/profile-blank.svg',
+  'img/profile.svg',
+  'img/scan.svg',
   'css/main.css',
   'js/main.js',
   'js/scan.js',
   'js/sw-declaration.js',
-  'js/html5-qrcode.min.js'
+  'js/qrcode.min.js',
+  'js/history.js'
 ];
 
 const staticCacheName = 'gpsfoodvoucher-v0.9';
@@ -21,7 +32,7 @@ self.addEventListener('install', event => {
       return cache.addAll(filesToCache);
     })
   );
-  self.skipWaiting();
+  // self.skipWaiting();
 });
 
 //cached dulu baru check network

@@ -62,12 +62,12 @@
         const date = sessionStorage.getItem("date_scan");
         if(checkStatus == "success") {
             document.getElementById("notif_success").style.display = "block";
-            document.getElementById("trans_code").innerHTML = '<small>Kode Transaksi :</small><br>' + transaction_code;
-            document.getElementById("merchant").innerHTML = '<small>Nama Merchant :</small><br>' + merchant_name;
-            document.getElementById("date").innerHTML = '<small>Tanggal :</small><br>' + date;
+            document.getElementById("trans_code").innerHTML = '<small>Kode Transaksi:</small><br>' + transaction_code;
+            document.getElementById("merchant").innerHTML = '<small>Nama Merchant:</small><br>' + merchant_name;
+            document.getElementById("date").innerHTML = '<small>Tanggal:</small><br>' + date;
         } else {
             document.getElementById("notif_error").style.display = "block";
-            document.getElementById("error_message").innerHTML = '<small>Erorr :</small><br>' + err_msg;
+            document.getElementById("error_message").innerHTML = '<small>Error: </small><br>' + err_msg;
         }
 
         }
