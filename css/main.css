@@ -352,7 +352,7 @@ footer span {
     max-width: 480px;
     margin: auto;
     grid-gap: 10px;
-    grid-template-columns: 1fr 108px;
+    grid-template-columns: 1fr 120px;
 }
 
 .profile legend {
