@@ -883,7 +883,7 @@ tr:hover td .arrow>span::after {
     object-position: top center;
     border-radius: 6px 6px 0 0;
     margin-top: 3px;
-    background: var(--color-primary-medium);
+    background: var(--gradient-secondary);
 }
 
 .profile-detail h6 {
