@@ -2,7 +2,7 @@
     "name": "GPS Voucher Makan Siang",
     "short_name": "GPS Voucher",
     "theme_color": "#2C2976",
-    "background_color": "#2C2976",
+    "background_color": "#fff",
     "display": "standalone",
     "orientation": "portrait",
     "scope": "/",
