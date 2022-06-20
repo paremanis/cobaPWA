@@ -14,7 +14,6 @@ function history(){
                             <th width="20%">Kode</th>
                             <th width="50%">Tempat Makan</th>
                           </tr>`;        
-        document.getElementById("filter_history").style.display = "none";
         history_user();
     }
     else {        
@@ -25,15 +24,12 @@ function history(){
                             <th></th>
                           </tr>`;
         document.getElementById("nrk").style.display = "none";
+        document.getElementById("filter_history").style.display = "block";
         history_merchant();
     } 
 }
 
 function history_user(){
-  var data = JSON.stringify({
-    'request_type' : 'history',
-    'token' : sessionStorage.getItem('AuthenticationState'),
-  });
   var data = JSON.stringify({
     'request_type' : 'history',
     'token' : sessionStorage.getItem('AuthenticationState'),
@@ -52,7 +48,7 @@ function history_user(){
   .then((data)=> {
     const historyUser = data.data;
     if (historyUser.length === 0) {            
-      document.getElementById("table_history").style.display = "none";
+      document.getElementById("no_data").style.display = "block";
     } else {
       let i = 1;
       historyUser.forEach((element) => {              
@@ -66,8 +62,8 @@ function history_user(){
           tabelHead.innerHTML = table_head;
           const tabelBody = document.querySelector("#tbody_history");
           tabelBody.innerHTML = tbodyUser;            
-          document.getElementById("no_data").style.display = "none";
       });
+      document.getElementById("table_history").style.display = "block";
     }
   })
 }
@@ -93,7 +89,7 @@ function history_merchant(){
     let sumOrder = 0;
     fetchData = historyMerchant;
     if (historyMerchant.length === 0) {            
-      document.getElementById("table_history").style.display = "none";
+      document.getElementById("no_data").style.display = "block";
     } else if(localStorage.getItem("filter") === null){
       let i = 1;
       historyMerchant.forEach((element) => {        
@@ -118,9 +114,9 @@ function history_merchant(){
       tabelHead.innerHTML = table_head;
       const tabelBody = document.querySelector("#tbody_history");
       tabelBody.innerHTML = tbodyMerchant + tbodysum;            
-      document.getElementById("no_data").style.display = "none";
       document.getElementById("date_end").value = getToday();
       document.getElementById("date_start").value = getPast();
+      document.getElementById("table_history").style.display = "";
     } else {
       filter_date();      
       let url_string = window.location;
@@ -129,6 +125,7 @@ function history_merchant(){
       let end = url.searchParams.get("date_end");
       document.getElementById("date_end").value = end;
       document.getElementById("date_start").value = start;
+      document.getElementById("table_history").style.display = "";
     }
   })
 }
@@ -167,8 +164,10 @@ function filter_date(){
     tabelHead.innerHTML = table_head;
     const tabelBody = document.querySelector("#tbody_history");
     tabelBody.innerHTML = dataFiltered + dataFiltered2;
-    document.getElementById("no_data").style.display = "none";
-  })  
+  });
+  if(sumOrder === 0){    
+    document.getElementById("no_data").style.display = "block";
+  };
 }
 
 function order_merchant(){
