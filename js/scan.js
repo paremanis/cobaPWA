@@ -49,6 +49,12 @@ const html5QrCode = new Html5Qrcode("qr-reader");
 const qrCodeSuccessCallback = (decodedText, decodedResult) => {
     /* handle success */
     console.log(`Code scanned = ` + decodedText, decodedResult);
+    html5QrCode.stop().then((ignore) => {
+        // QR Code scanning is stopped.
+        console.log(ignore);
+      }).catch((err) => {
+        // Stop failed, handle it.
+      });
     
     // const data = JSON.stringify({
     //     'request_type' : 'scan',
@@ -89,8 +95,3 @@ const qrCodeSuccessCallback = (decodedText, decodedResult) => {
 const config = { fps: 10,  qrbox: 250 };
 
 html5QrCode.start({ facingMode: { exact: "environment"} }, config, qrCodeSuccessCallback);
-html5QrCode.stop().then((ignore) => {
-    // QR Code scanning is stopped.
-  }).catch((err) => {
-    // Stop failed, handle it.
-  });
