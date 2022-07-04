@@ -89,8 +89,8 @@ const qrCodeSuccessCallback = (decodedText, decodedResult) => {
 const config = { fps: 10,  qrbox: 250 };
 
 html5QrCode.start({ facingMode: { exact: "environment"} }, config, qrCodeSuccessCallback);
-// html5QrCode.stop().then((ignore) => {
-//     // QR Code scanning is stopped.
-//   }).catch((err) => {
-//     // Stop failed, handle it.
-//   });
+html5QrCode.stop().then((ignore) => {
+    // QR Code scanning is stopped.
+  }).catch((err) => {
+    // Stop failed, handle it.
+  });
