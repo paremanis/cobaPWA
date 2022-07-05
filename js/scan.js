@@ -1,14 +1,28 @@
 const html5QrCode = new Html5Qrcode("qr-reader");
+var html5QrcodeScanner = new Html5QrcodeScanner(
+    "qr-reader", { 
+        fps: 50, 
+        qrbox: 250,  
+        rememberLastUsedCamera: true, 
+}, verbose= false);
 const qrCodeSuccessCallback = (decodedText, decodedResult) => {
     /* handle success */
     // console.log(`Code scanned = ` + decodedText, decodedResult);
-    html5QrCode.stop();
-    
+    sendDataScaned(decodedText);
+};
+const config = { fps: 50,  qrbox: 250 };
+
+html5QrCode.start({ facingMode: { exact: "environment"} }, config, qrCodeSuccessCallback).catch((err) => {
+    // Start failed, handle it.
+    html5QrcodeScanner.render(qrCodeSuccessCallback);
+});
+
+function sendDataScaned(idMerchant){
     const data = JSON.stringify({
         'request_type' : 'scan',
         'token' : sessionStorage.getItem('AuthenticationState'),
         'id_user' : sessionStorage.getItem('id_user'),
-        'id_merchant' : decodedText
+        'id_merchant' : idMerchant
     });
 
     const url = "https://haris.globalprestasi.sch.id/api/vm.php";
@@ -39,7 +53,4 @@ const qrCodeSuccessCallback = (decodedText, decodedResult) => {
       .catch(function(error) { 
           console.log(error);
       }); 
-};
-const config = { fps: 10,  qrbox: 250 };
-
-html5QrCode.start({ facingMode: { exact: "environment"} }, config, qrCodeSuccessCallback);
+}
