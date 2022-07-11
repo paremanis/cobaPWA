@@ -1,16 +1,14 @@
+let video = document.getElementById("qr-reader");
+video.setAttribute('autoplay', '');
+video.setAttribute('muted', '');
+video.setAttribute('playsinline', '');
 let html5QrCode = new Html5Qrcode("qr-reader");
-    html5QrCode.setAttribute('autoplay', '');
-    html5QrCode.setAttribute('muted', '');
-    html5QrCode.setAttribute('playsinline', '');
 let html5QrcodeScanner = new Html5QrcodeScanner(
     "qr-reader", { 
         fps: 50, 
         qrbox: 250,  
         rememberLastUsedCamera: true, 
 }, verbose= false);
-    html5QrcodeScanner.setAttribute('autoplay', '');
-    html5QrcodeScanner.setAttribute('muted', '');
-    html5QrcodeScanner.setAttribute('playsinline', '');
 const qrCodeSuccessCallback = (decodedText, decodedResult) => {
     /* handle success */
     // console.log(`Code scanned = ` + decodedText, decodedResult);
