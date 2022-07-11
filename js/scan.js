@@ -1,9 +1,5 @@
-let video = document.getElementById("qr-reader");
-video.setAttribute('autoplay', '');
-video.setAttribute('muted', '');
-video.setAttribute('playsinline', '');
-let html5QrCode = new Html5Qrcode("qr-reader");
-let html5QrcodeScanner = new Html5QrcodeScanner(
+const html5QrCode = new Html5Qrcode("qr-reader");
+var html5QrcodeScanner = new Html5QrcodeScanner(
     "qr-reader", { 
         fps: 50, 
         qrbox: 250,  
